@@ -5,7 +5,16 @@
       "Bash(npx shadcn@latest add:*)",
       "Read(//var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_5KLBCf/**)",
       "Bash(curl:*)",
-      "Read(//var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_DixBHf/**)"
+      "Read(//var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_DixBHf/**)",
+      "Read(//var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_V9k6th/**)",
+      "Read(//var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_ZO5YZr/**)",
+      "WebFetch(domain:www.sesame.com)",
+      "WebFetch(domain:www.perplexity.ai)",
+      "WebSearch",
+      "WebFetch(domain:www.darioamodei.com)",
+      "WebFetch(domain:www.lanceyan.tech)",
+      "Bash(cat:*)",
+      "Bash(npm run build:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

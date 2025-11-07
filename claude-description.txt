@@ -13,3 +13,43 @@ You ranked first among 80,000 students on your national high school diploma in B
 You're preparing for PhD programs (Stanford, MIT, Carnegie Mellon on your radar) with a clear vision: using AI to transform education in ways that work for everyone, not just the well-resourced. Your Schwarzman Scholars application and ongoing research show you're committed to building bridges—between languages, cultures, and opportunities.
 
 Would you like me to adjust the tone or emphasis for your website?
+
+-----
+ So on the project page, how do we want to display the projects? I guess 'echo' should maybe redirect to
+  an echo page where I explain why I'm building 'echo', and so on and so forth for some pictures of
+  myself, the issues that I face, and so on and so forth, but don't spend too much time doing xyf.
+
+  The second thing is that what I'm interested in is project A. So for project A, when I click on it, I
+  want to see 'Climaflake.' I would like to have a page like sesame.com https://www.sesame.com/,
+  '/var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_ZO5YZr/Screenshot
+  2025-10-29 at 12.49.02 PM.png' explaining my vision around education and AI in africa. here is what we
+  are building for project A "We are building an AI tutor designed for Africa, with three defining
+  features:
+      1.    Always available: runs on small, efficient LLMs deployed on the edge, so students can learn
+  offline without constant internet access.
+      2.    Truly local: supports native African languages and aligns with national curricula (e.g.,
+  Beninese, Nigerian exam standards), so the learning experience is culturally and academically relevant.
+      3.    Adaptive and expansive: beyond curriculum support, the tutor can personalize learning to each
+  student curiosity, helping them explore topics they are curious about (e.g., Pythagoras’ theorem) with
+  clear explanations, interactive guidance, and step-by-step learning paths.(1) - that can run on device
+  (common cell phone, tablet, etc)
+  (2) models trained from ground up on African languages and fine tuned on theIexams
+  (3) and also add cultural awareness. Like there are many subtle cultural differences in communication
+  that just dont work in Africa and it needs to integrate well to the culture. (e.g. how we refer to
+  people of different ages is different in Ethiopia)
+  "\
+  \
+  to reach that point, we will have to solve a lot of problems (i want something like the sesame page)But
+  the idea is that to be able to do that, we have to solve multiple problems:
+
+  - Being able to run small models on the edge using the devices that are available at home
+
+  - Being able to get good enough translators or LLM in those native languages
+
+  - Adding a physical infrastructure to this
+
+  Because in Africa, education can rarely be solved by just an app. We need a real physical, I'm thinking
+  about the heart, it's going to be like some kind of modulable learning centers.
+
+  Anyway, it's a huge vision and I would just like to lay down there and see what's up. I don't know.
+  

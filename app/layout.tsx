@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-// Editorial New Font Family
+// Inter Font (Body Text)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+// Editorial New Font Family (Display/Headlines)
 const editorialUltralight = localFont({
   src: "../fonts/Editorial_New_Font_Family_(Fontmirror)/Editorial New Ultralight 200.otf",
   variable: "--font-editorial-ultralight",
@@ -36,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} antialiased`}
+        className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} antialiased`}
       >
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>

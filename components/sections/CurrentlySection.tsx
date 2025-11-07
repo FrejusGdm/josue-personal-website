@@ -3,15 +3,21 @@
 import { motion } from "framer-motion";
 
 const currentItems = [
-  "Co-founding Echo - AI language learning for underserved communities",
-  "Researching neural machine translation for Adja at Dartmouth",
-  "Preparing for Schwarzman Scholars 2025 in Beijing",
-  "Documenting endangered West African languages",
+  <>
+    <strong>Building Echo (useecho.ai)</strong> - Speech-first language learning
+    through immersion
+  </>,
+  <>
+    <strong>Working on Project A:</strong> Offline AI-powered education for Africa
+    in local languages
+  </>,
+  <>Applying to grad schools while staying fully committed to startup life</>,
+  <>Doing research on how to use AI to translate my native language, underresourced language</>,
 ];
 
 export default function CurrentlySection() {
   return (
-    <section className="w-full bg-neutral-50 py-24 md:py-32">
+    <section className="w-full bg-neutral-50 py-20 md:py-24 border-t border-neutral-100">
       <div className="max-w-4xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,12 +26,12 @@ export default function CurrentlySection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Section heading */}
-          <h2 className="text-2xl md:text-3xl font-display text-foreground mb-10 flex items-center gap-3">
-            <span className="text-2xl">◆</span> Currently working on:
+          <h2 className="text-lg md:text-xl font-sans text-neutral-400 mb-8 tracking-wide">
+            ◆ Currently working on
           </h2>
 
           {/* List items - Lance Yan style */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {currentItems.map((item, index) => (
               <motion.div
                 key={index}
@@ -35,7 +41,7 @@ export default function CurrentlySection() {
                 transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
                 className="flex items-start gap-4 group"
               >
-                <span className="text-neutral-400 font-sans text-lg mt-1 group-hover:text-foreground transition-colors duration-200">
+                <span className="text-neutral-400 font-sans text-base mt-0.5 group-hover:text-foreground transition-colors duration-200">
                   ↳
                 </span>
                 <p className="text-base md:text-lg font-sans text-neutral-700 leading-relaxed group-hover:text-foreground transition-colors duration-200">
