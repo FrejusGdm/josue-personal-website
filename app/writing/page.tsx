@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const metadata = {
   title: "Writing - Josué Godeme",
-  description: "Essays on AI, language, and culture.",
+  description: "Essays on Tech, language, and whatever else I feel like writing about.",
 };
 
 export default async function WritingPage() {

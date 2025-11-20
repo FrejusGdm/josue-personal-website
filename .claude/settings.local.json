@@ -14,7 +14,8 @@
       "WebFetch(domain:www.darioamodei.com)",
       "WebFetch(domain:www.lanceyan.tech)",
       "Bash(cat:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(pnpm run build:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

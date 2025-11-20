@@ -18,13 +18,13 @@ export default function DeepBio() {
           >
             <div className="space-y-6 font-sans text-lg md:text-xl text-neutral-600 leading-relaxed">
               <p>
-                I grew up in Benin, where I learned early on that talent is universal, but opportunity is not. Ranking first in my national high school diploma opened doors to an international education, but it also clarified my mission.
+                I grew up in Benin, a tiny country in West Africa. I ranked first in my national high school diploma (baccalauréat) with the 2nd highest score in the history of the exam in my country. This allowed me to attend Dartmouth College, where I now study computer science and minor in Mandarin Chinese. I speak four languages—English, French, Chinese, and Adja. At Dartmouth, I am a King Scholar and a Stamps Scholar.
               </p>
               <p>
-                Now, as a computer science student at Dartmouth, I bridge worlds. I speak four languages—English, French, Chinese, and Adja—and I see technology as the ultimate translator. Not just of words, but of ideas and potential.
+                I believe that technology, when used well and adapted to local contexts, can be powerful in solving problems and improving lives. That&apos;s what I want to do—build products that help people solve problems and improve their lives.
               </p>
               <p>
-                Whether I'm building <strong className="text-foreground font-medium">Echo</strong> to help people find their voice in a new language, or researching AI architectures for low-resource African languages, my goal is simple: <span className="text-foreground font-medium italic">engineering with empathy</span>.
+                I built Echo, a speech-focused language learning app where you get an AI tutor to help you practice the language through voice. I&apos;ve built a bunch of other projects during my time at Dartmouth. Currently, I&apos;m obsessed with AI in education and languages. I want to make AI understand the languages of the rest of the world—languages that my parents and millions of others across Asia and Africa speak. But I&apos;m also deeply interested in running AI models on the edge (devices like the Raspberry Pi) and mobile (like the iPhone). Why? Because it&apos;s amazing that you can package such a vast amount of knowledge in those small LLMs, and I think this is crucial for education, especially in under-resourced areas.
               </p>
             </div>
             

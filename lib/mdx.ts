@@ -13,7 +13,7 @@ export type Essay = {
   date: string;
   readTime: string;
   content: React.ReactNode;
-  frontmatter: Record<string, any>;
+  frontmatter: Record<string, unknown>;
 };
 
 export type EssayMeta = Omit<Essay, 'content'>;
@@ -38,7 +38,7 @@ export async function getEssayBySlug(slug: string): Promise<Essay | undefined> {
       content,
       frontmatter,
     };
-  } catch (e) {
+  } catch {
     return undefined;
   }
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import Link from "next/link";
 
 export default function ModernHero() {
   return (
@@ -33,7 +34,7 @@ export default function ModernHero() {
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           className="font-sans text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed"
         >
-          I'm <span className="text-foreground font-medium">Josué Godeme</span>. A 22-year-old student who loves to solve hard problems, explore the world, and capture moments through a lens.
+          I&apos;m <span className="text-foreground font-medium">Josué Godeme</span>. A 22-year-old student who loves to solve hard problems, explore the world, and capture moments through a lens.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -49,12 +50,12 @@ export default function ModernHero() {
           >
             View Selected Work
           </a>
-          <a
+          <Link
             href="/writing"
             className="px-8 py-3.5 bg-white border border-neutral-200 text-neutral-800 font-sans text-sm font-medium rounded-full hover:bg-neutral-50 transition-colors"
           >
             Read Essays
-          </a>
+          </Link>
         </motion.div>
       </div>
       
