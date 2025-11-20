@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-neutral-200 bg-white">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 py-16">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 py-16">
         {/* Social Links */}
         <div className="flex gap-4 mb-12">
           {socialLinks.map((social) => {

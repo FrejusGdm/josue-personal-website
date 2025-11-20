@@ -30,11 +30,11 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-neutral-200"
+          ? "glass-nav border-b border-neutral-200/50"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Name */}
           <Link href="/" className="group">

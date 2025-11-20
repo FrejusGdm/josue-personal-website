@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 export default function IntroSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-24 border-b border-neutral-100">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
+    <section className="w-full bg-white pt-4 pb-20 md:pt-6 md:pb-24 border-b border-neutral-100">
+      <div className="max-w-4xl px-6 md:px-12 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,9 +35,9 @@ export default function IntroSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-2xl md:text-3xl font-display text-foreground mb-2 tracking-tight"
+              className="text-lg md:text-xl font-display text-foreground mb-2 tracking-tight"
             >
-              <span className="text-neutral-400 mr-3">◆</span>Hi, I&apos;m Josué
+              Hi, I&apos;m Josué
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, x: -20 }}

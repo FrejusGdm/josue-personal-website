@@ -1,0 +1,31 @@
+---
+title: "Building for the Next Billion Users"
+date: "2023-08-10"
+description: "Designing interfaces for people who are coming online for the first time."
+readTime: "6 min read"
+---
+
+The next billion users coming online won't be using a desktop computer. They won't even be using an iPhone. They'll be using low-cost Android devices, often with intermittent connectivity.
+
+## The Constraints
+
+When we build for this demographic (which includes many users in Benin and across Africa), we have to rethink our assumptions:
+
+1.  **Data is expensive**: Every megabyte counts.
+2.  **Latency is high**: Round-trips to a server in Virginia don't cut it.
+3.  **Literacy varies**: Voice interfaces are often more intuitive than text.
+
+## Offline-First is not Optional
+
+For **Climaflake**, we aren't just "adding offline support" as a feature. It is the *core* architecture.
+
+```javascript
+// A mental model for offline-first sync
+if (!navigator.onLine) {
+  saveToLocalDatabase(data);
+  queueSyncForLater();
+}
+```
+
+We are exploring local-first LLMs that can run on-device, ensuring that a student in a remote village has the same access to personalized tutoring as a student in a connected city.
+
