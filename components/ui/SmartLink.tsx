@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
 interface SmartLinkProps {
@@ -21,7 +22,6 @@ export default function SmartLink({ children, href, previewText, previewImage, e
 
   return (
     <span className="relative inline-block">
-      {/* @ts-ignore */}
       <LinkComponent
         {...linkProps}
         className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors cursor-pointer"
@@ -42,7 +42,7 @@ export default function SmartLink({ children, href, previewText, previewImage, e
           >
             {previewImage && (
               <div className="w-full h-32 bg-neutral-800 rounded-lg mb-3 overflow-hidden relative">
-                <img src={previewImage} alt="" className="w-full h-full object-cover" />
+                <Image src={previewImage} alt="" fill className="object-cover" />
               </div>
             )}
             {previewText && (
@@ -63,4 +63,3 @@ export default function SmartLink({ children, href, previewText, previewImage, e
     </span>
   );
 }
-
