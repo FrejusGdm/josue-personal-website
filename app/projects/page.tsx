@@ -2,26 +2,62 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
     title: "Echo",
     tagline: "Speech-first language learning",
     description:
-      "Built from personal need while learning Chinese. Echo brings immersion back to language learning through natural conversation practice—no flashcards, no grammar drills, just speaking.",
+      "Built from personal need while learning Chinese. Echo brings immersion back to language learning through natural conversation practice—no flashcards, no grammar drills, just speaking. Serving 100+ active users with AI-powered speech recognition and personalized feedback.",
     href: "/projects/echo",
     tags: ["AI", "EdTech", "Speech Recognition", "Live Product"],
     status: "Active",
   },
   {
     title: "Project A",
-    tagline: "AI Education for Africa",
+    tagline: "Offline AI Education for Africa",
     description:
-      "Building an offline AI tutor designed specifically for Africa. Features include edge AI deployment, native African language support, and adaptive personalized learning. A side project with a big vision.",
+      "Developing an offline AI tutor designed specifically for African contexts. Features include edge AI deployment on Raspberry Pi, native African language support (starting with Adja), and adaptive personalized learning to function without internet access.",
     href: "/projects/project-a",
-    tags: ["AI", "Education", "Edge Computing", "NLP"],
+    tags: ["AI", "Edge Computing", "NLP", "Accessibility"],
     status: "In Development",
+  },
+  {
+    title: "Calendai",
+    tagline: "Intelligent Scheduling Assistant",
+    description:
+      "An AI-powered scheduling tool that streamlines calendar management. (Description placeholder - focusing on intelligent time management and automated coordination).",
+    href: "#",
+    tags: ["AI", "Productivity", "SaaS"],
+    status: "Prototype",
+  },
+  {
+    title: "Nexus Footwear",
+    tagline: "Modern E-commerce Experience",
+    description:
+      "A comprehensive e-commerce platform for footwear, featuring 3D product visualization, seamless checkout flows, and a modern, responsive design system.",
+    href: "#",
+    tags: ["Web Dev", "E-commerce", "3D", "Design"],
+    status: "Completed",
+  },
+  {
+    title: "Davis Peace Project",
+    tagline: "Adja Language Documentation",
+    description:
+      "Funded language documentation workshops in Benin, creating the first-ever translation dataset for the Adja language. This project laid the foundation for preserving under-resourced languages through digital tools.",
+    href: "#",
+    tags: ["Research", "Linguistics", "Social Impact"],
+    status: "Completed",
+  },
+  {
+    title: "Stamps Scholar Research",
+    tagline: "Adja NMT System",
+    description:
+      "Led the creation of the first-ever digital corpus of 10,000 French-Adja sentence pairs over 2 years. Developed a neural machine translation system using transfer learning and few-shot techniques to democratize access to information.",
+    href: "#",
+    tags: ["NLP", "Deep Learning", "Research", "Low-Resource Languages"],
+    status: "Ongoing",
   },
 ];
 
@@ -44,12 +80,11 @@ export default function ProjectsPage() {
 
           <h1 className="font-display text-6xl md:text-7xl mb-6">Projects</h1>
           <p className="font-sans text-xl text-neutral-600 leading-relaxed mb-16">
-            Building tools, experiments, and products that push the boundaries of
-            what&apos;s possible.
+            A collection of products, experiments, and research initiatives.
           </p>
 
           {/* Project Cards */}
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -60,8 +95,9 @@ export default function ProjectsPage() {
                   duration: 0.6,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
+                className="flex"
               >
-                <Link href={project.href}>
+                <Link href={project.href} className="w-full block h-full">
                   <motion.div
                     whileHover={{
                       y: -4,
@@ -71,23 +107,24 @@ export default function ProjectsPage() {
                         damping: 25,
                       },
                     }}
-                    className="group border border-neutral-200 rounded-2xl p-8 md:p-10 hover:border-neutral-300 hover:shadow-lg transition-all duration-500 cursor-pointer bg-white"
+                    className="group border border-neutral-200 rounded-2xl p-8 md:p-10 hover:border-neutral-300 hover:shadow-lg transition-all duration-500 cursor-pointer bg-white h-full flex flex-col"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <h2 className="text-3xl md:text-4xl font-display text-foreground mb-2 group-hover:text-neutral-700 transition-colors">
+                        <h2 className="text-2xl md:text-3xl font-display text-foreground mb-2 group-hover:text-neutral-700 transition-colors">
                           {project.title}
                         </h2>
-                        <p className="text-lg font-sans text-neutral-600 mb-4">
-                          {project.tagline}
-                        </p>
                       </div>
-                      <span className="text-xs font-sans text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">
+                      <span className="text-[10px] uppercase tracking-wider font-sans text-neutral-500 bg-neutral-100 px-2 py-1 rounded-full">
                         {project.status}
                       </span>
                     </div>
+                    
+                    <p className="text-sm font-medium text-neutral-400 mb-4 uppercase tracking-wide">
+                        {project.tagline}
+                    </p>
 
-                    <p className="text-base md:text-lg font-sans text-neutral-700 leading-relaxed mb-6">
+                    <p className="text-base font-sans text-neutral-600 leading-relaxed mb-6 flex-grow">
                       {project.description}
                     </p>
 
@@ -96,7 +133,7 @@ export default function ProjectsPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs font-sans text-neutral-600 border border-neutral-200 px-3 py-1 rounded-full"
+                          className="text-xs font-sans text-neutral-500 border border-neutral-100 bg-neutral-50 px-2 py-1 rounded-md"
                         >
                           {tag}
                         </span>
@@ -104,20 +141,14 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* CTA */}
-                    <motion.div
-                      className="inline-flex items-center gap-2 text-sm font-sans text-foreground"
-                      whileHover={{
-                        gap: "12px",
-                        transition: {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 20,
-                        },
-                      }}
-                    >
-                      Learn more
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.div>
+                    <div className="mt-auto pt-4 border-t border-neutral-100">
+                        <div
+                        className="inline-flex items-center gap-2 text-sm font-sans text-neutral-900 font-medium group-hover:gap-3 transition-all"
+                        >
+                        View Details
+                        <ArrowRight className="w-4 h-4" />
+                        </div>
+                    </div>
                   </motion.div>
                 </Link>
               </motion.div>

@@ -85,10 +85,10 @@ export default function FeaturedWork() {
           />
 
           <Project
-            title="Climaflake"
-            category="Education • Accessibility"
-            description="An offline-first AI tutor designed for Africa. Bringing personalized, curriculum-aligned education to students without reliable internet."
-            href="/projects/project-a"
+            title="Calendai"
+            category="Productivity • AI Agent"
+            description="An intelligent scheduling assistant that streamlines your calendar management through natural language and automated coordination."
+            href="#"
             align="right"
           />
         </div>
@@ -96,4 +96,3 @@ export default function FeaturedWork() {
     </section>
   );
 }
-

@@ -34,7 +34,7 @@ export default function ModernHero() {
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           className="font-sans text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed"
         >
-          I&apos;m <span className="text-foreground font-medium">Josué Godeme</span>. A 22-year-old student who loves to solve hard problems, explore the world, and capture moments through a lens.
+          I&apos;m <span className="text-foreground font-medium">Josué Godeme</span>. A Student at Dartmouth who loves to solve hard problems, explore the world, and capture moments through a lens.
         </motion.p>
 
         {/* CTA Buttons */}

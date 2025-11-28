@@ -9,8 +9,8 @@ export default function Footer() {
   const socialLinks = [
     { name: "GitHub", icon: Github, href: "https://github.com/FrejusGdm" },
     { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/josue-godeme-58abb2196/" },
-    { name: "Twitter", icon: Twitter, href: "https://x.com/josue_gdm?s=21" },
-    { name: "Email", icon: Mail, href: "mailto:your.email@example.com" },
+    { name: "Twitter", icon: Twitter, href: "https://x.com/josue_gdm" },
+    { name: "Email", icon: Mail, href: "mailto:josue.godeme@example.com" },
   ];
 
   return (
