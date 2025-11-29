@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Construction } from "lucide-react";
 import Link from "next/link";
 
 export default function ModernHero() {
@@ -16,8 +16,24 @@ export default function ModernHero() {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
         
-        {/* Main Headline */}
-        <motion.h1
+        <div className="space-y-6">
+          {/* Construction Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex justify-center"
+          >
+            <div className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-full shadow-sm">
+              <Construction className="w-3.5 h-3.5 text-neutral-500" />
+              <p className="text-xs font-sans font-medium text-neutral-600">
+                Website under construction — still adding the cool stuff! 🚧
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -26,6 +42,7 @@ export default function ModernHero() {
           Building with <br className="hidden md:block" />
           <span className="italic font-light text-neutral-400">Purpose.</span>
         </motion.h1>
+        </div>
 
         {/* Subtext - More Personal */}
         <motion.p
