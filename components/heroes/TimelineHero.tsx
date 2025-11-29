@@ -3,12 +3,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, GraduationCap, Globe, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const journeyStops = [
   {
     location: "Benin",
     year: "2003-2021",
     icon: MapPin,
+    logo: "benin.png",
     title: "Roots & Foundation",
     description:
       "Ranked 1st among 80,000 students. Four languages. A vision for African education.",
@@ -18,6 +20,7 @@ const journeyStops = [
     location: "Dartmouth",
     year: "2021-2025",
     icon: GraduationCap,
+    logo: "dartmouth.png",
     title: "Computer Science & Chinese",
     description:
       "Adja language documentation. Echo co-founder. Davis Peace Project Grant.",
@@ -27,6 +30,7 @@ const journeyStops = [
     location: "Beijing",
     year: "2024",
     icon: Globe,
+    logo: "schwarzman.png",
     title: "Cross-Cultural Bridge",
     description:
       "Schwarzman Scholars. Global perspective. Connecting three continents.",
@@ -36,6 +40,7 @@ const journeyStops = [
     location: "Future",
     year: "Now",
     icon: Sparkles,
+    logo: null,
     title: "Building Tomorrow",
     description:
       "At the intersection of language, AI, and impact. Making the internet accessible to all.",
@@ -78,7 +83,16 @@ function TimelineStop({
             <Icon size={24} style={{ color: stop.color }} strokeWidth={2} />
           </div>
           <div>
-            <h3 className="text-2xl md:text-3xl font-display text-[var(--warm-brown)]">
+            <h3 className="text-2xl md:text-3xl font-display text-[var(--warm-brown)] inline-flex items-center gap-1.5">
+              {stop.logo && (
+                <Image
+                  src={`/logos/${stop.logo}`}
+                  alt={`${stop.location} logo`}
+                  width={18}
+                  height={18}
+                  className="object-contain"
+                />
+              )}
               {stop.location}
             </h3>
             <p className="text-sm text-[var(--warm-brown)]/60 font-sans">

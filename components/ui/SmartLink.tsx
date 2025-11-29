@@ -12,9 +12,10 @@ interface SmartLinkProps {
   previewText?: string;
   previewImage?: string; // URL to image
   external?: boolean;
+  logo?: string; // path to logo in /public/logos/
 }
 
-export default function SmartLink({ children, href, previewText, previewImage, external = false }: SmartLinkProps) {
+export default function SmartLink({ children, href, previewText, previewImage, external = false, logo }: SmartLinkProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const LinkComponent = external ? "a" : Link;
@@ -24,10 +25,19 @@ export default function SmartLink({ children, href, previewText, previewImage, e
     <span className="relative inline-block">
       <LinkComponent
         {...linkProps}
-        className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors cursor-pointer"
+        className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors cursor-pointer inline-flex items-center gap-1"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {logo && (
+          <Image
+            src={`/logos/${logo}`}
+            alt=""
+            width={14}
+            height={14}
+            className="object-contain"
+          />
+        )}
         {children}
       </LinkComponent>
 

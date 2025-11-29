@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Construction } from "lucide-react";
 import Link from "next/link";
+import InstitutionBadge from "@/components/ui/InstitutionBadge";
 
 export default function ModernHero() {
   return (
@@ -51,7 +52,7 @@ export default function ModernHero() {
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           className="font-sans text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed"
         >
-          I&apos;m <span className="text-foreground font-medium">Josué Godeme</span>. A Student at Dartmouth who loves to solve hard problems, explore the world, and capture moments through a lens.
+          I&apos;m <span className="text-foreground font-medium">Josué Godeme</span>. A Student at <InstitutionBadge name="Dartmouth" logo="dartmouth.png" href="https://dartmouth.edu" /> who loves to solve hard problems, explore the world, and capture moments through a lens.
         </motion.p>
 
         {/* CTA Buttons */}

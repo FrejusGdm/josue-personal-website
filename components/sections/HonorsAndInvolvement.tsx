@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import SmartLink from "@/components/ui/SmartLink";
+import Image from "next/image";
 
 const honors = [
   {
     title: "Stamps Scholarship",
     organization: "Stamps Foundation",
+    logo: "stamps.png",
     date: "June 2024 – Present",
     link: "https://www.stampsscholars.org/",
     previewText: "Merit-based award supporting exceptional students' leadership and research projects.",
@@ -15,6 +17,7 @@ const honors = [
   {
     title: "King Scholarship",
     organization: "King Philanthropies & Dartmouth College",
+    logo: "king.png",
     date: "Sept 2022 – Present",
     link: "https://kingphilanthropies.org/king-scholars/",
     previewText: "Four-year full scholarship for students from low-income countries committed to alleviating poverty.",
@@ -23,6 +26,7 @@ const honors = [
   {
     title: "Davis Peace Project",
     organization: "Project for Peace & Dickey Center",
+    logo: "davis.png",
     date: "Jun 2024 – Aug 2024",
     link: "https://www.davisprojectsforpeace.org/",
     previewText: "$10,000 competitive grant awarded to students for community impact projects.",
@@ -31,6 +35,7 @@ const honors = [
   {
     title: "Bosworth Award",
     organization: "Dickey Center for International Understanding",
+    logo: "dickey.png",
     date: "Sept 2025 – Present",
     link: "https://dickey.dartmouth.edu/",
     previewText: "Awarded to 4 students for excellence in international affairs and leadership.",
@@ -39,6 +44,7 @@ const honors = [
   {
     title: "National High School Diploma Top Scorer",
     organization: "Ministry of Education, Republic of Benin",
+    logo: "benin.png",
     date: "June 2021",
     link: "https://en.wikipedia.org/wiki/Benin",
     previewText: "National examination in the Republic of Benin.",
@@ -50,26 +56,36 @@ const involvement = [
   {
     role: "Co-President",
     organization: "NSBE Dartmouth Chapter",
+    logo: "dartmouth.png", // TODO: replace with nsbe.png when available
     date: "Sept 2024 – Present",
     description: "Leading chapter strategy and programming for 50+ engineering students. Previously Academic Excellence Chair.",
   },
   {
     role: "Co-President",
     organization: "CoderDojo Dartmouth",
+    logo: "dartmouth.png", // TODO: replace with coderdojo.png when available
     date: "Feb 2024 – Present",
     description: "Teaching computer science concepts to ~20 students from underserved high schools in the Upper Valley.",
   },
   {
     role: "Executive Board",
     organization: "Dartmouth African Student Association",
+    logo: "dartmouth.png",
     date: "Sept 2023 – Present",
     description: "Coordinating cultural programming, professional development events, and academic transition support.",
   },
   {
     role: "Fellow / Member",
-    organization: "Various Organizations",
+    organization: "Various Programs",
+    logo: null,
     date: "Ongoing",
     description: "Color Stack Member, Codepath Graduate, AI4ALL Student Fellow, Nvidia Bridge 2023.",
+    badges: [
+      { name: "ColorStack", logo: "colorstack.png" },
+      { name: "CodePath", logo: "codepath.png" },
+      { name: "AI4ALL", logo: "ai4all.png" },
+      { name: "NVIDIA", logo: "nvidia.png" },
+    ],
   },
 ];
 
@@ -98,7 +114,16 @@ export default function HonorsAndInvolvement() {
                     </h3>
                     <span className="font-sans text-sm text-neutral-400 flex-shrink-0 ml-4">{item.date}</span>
                   </div>
-                  <div className="text-sm text-neutral-500 mb-2 font-medium">{item.organization}</div>
+                  <div className="text-sm text-neutral-500 mb-2 font-medium inline-flex items-center gap-1">
+                    <Image
+                      src={`/logos/${item.logo}`}
+                      alt={`${item.organization} logo`}
+                      width={14}
+                      height={14}
+                      className="object-contain"
+                    />
+                    {item.organization}
+                  </div>
                   <p className="font-sans text-neutral-600 leading-relaxed text-sm md:text-base">
                     {item.description}
                   </p>
@@ -124,10 +149,37 @@ export default function HonorsAndInvolvement() {
                     </h3>
                     <span className="font-sans text-sm text-neutral-400 flex-shrink-0 ml-4">{item.date}</span>
                   </div>
-                  <div className="text-sm text-neutral-500 mb-2 font-medium">{item.organization}</div>
+                  <div className="text-sm text-neutral-500 mb-2 font-medium inline-flex items-center gap-1">
+                    {item.logo && (
+                      <Image
+                        src={`/logos/${item.logo}`}
+                        alt={`${item.organization} logo`}
+                        width={14}
+                        height={14}
+                        className="object-contain"
+                      />
+                    )}
+                    {item.organization}
+                  </div>
                   <p className="font-sans text-neutral-600 leading-relaxed text-sm md:text-base">
                     {item.description}
                   </p>
+                  {item.badges && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {item.badges.map((badge, badgeIdx) => (
+                        <span key={badgeIdx} className="inline-flex items-center gap-1 text-xs text-neutral-500 bg-neutral-50 px-2 py-1 rounded-full">
+                          <Image
+                            src={`/logos/${badge.logo}`}
+                            alt={`${badge.name} logo`}
+                            width={12}
+                            height={12}
+                            className="object-contain"
+                          />
+                          {badge.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

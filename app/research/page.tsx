@@ -30,7 +30,9 @@ export default function ResearchPage() {
             </div>
             <div>
                 <a 
-                    href="#" // Needs Google Scholar Link
+                    href="https://scholar.google.com/citations?user=Se77iHUAAAAJ&hl=en&oi=ao"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 rounded-lg transition-colors font-medium text-sm"
                 >
                     <ExternalLink className="w-4 h-4" />
@@ -48,17 +50,24 @@ export default function ResearchPage() {
                 </h2>
                 <div className="space-y-8">
                     <div className="group">
-                        <h3 className="font-sans text-lg font-medium text-neutral-900 mb-2">
-                            Artificial Allies: Validation of Synthetic Text for Peer Support Tools through Data Augmentation in NLP Model Development
-                        </h3>
-                        <p className="text-neutral-600 mb-2 text-sm leading-relaxed">
-                            Godeme, J., Hill, J., Gaughan, S. P., Hirschbuhl, W. J., Emerson, A. J., Darabos, C., Bobak, C. A., & Fortuna, K. L. (2025).
-                        </p>
-                        <div className="flex items-center gap-3 text-sm text-neutral-500">
-                            <span className="italic">Proceedings of the Pacific Symposium on Biocomputing, Hawaii, USA</span>
-                            <span>•</span>
-                            <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-medium">Published</span>
-                        </div>
+                        <a 
+                           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Se77iHUAAAAJ&citation_for_view=Se77iHUAAAAJ:u5HHmVD_uO8C"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="block hover:bg-neutral-50 -mx-4 px-4 py-4 rounded-xl transition-colors"
+                        >
+                            <h3 className="font-sans text-lg font-medium text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                Artificial Allies: Validation of Synthetic Text for Peer Support Tools through Data Augmentation in NLP Model Development
+                            </h3>
+                            <p className="text-neutral-600 mb-2 text-sm leading-relaxed">
+                                Godeme, J., Hill, J., Gaughan, S. P., Hirschbuhl, W. J., Emerson, A. J., Darabos, C., Bobak, C. A., & Fortuna, K. L. (2025).
+                            </p>
+                            <div className="flex items-center gap-3 text-sm text-neutral-500">
+                                <span className="italic">Proceedings of the Pacific Symposium on Biocomputing, Hawaii, USA</span>
+                                <span>•</span>
+                                <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-medium">Published</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>

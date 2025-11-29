@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectProps {
   title: string;
@@ -14,7 +15,7 @@ interface ProjectProps {
   align?: "left" | "right";
 }
 
-const Project = ({ title, category, description, href, align = "left" }: ProjectProps) => {
+const Project = ({ title, category, description, href, imageSrc, align = "left" }: ProjectProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -48,14 +49,22 @@ const Project = ({ title, category, description, href, align = "left" }: Project
         </div>
       </div>
 
-      {/* Visual Side - Abstract Representation since we might not have images yet */}
+      {/* Visual Side */}
       <div className="flex-1 w-full aspect-[4/3] bg-neutral-100 rounded-2xl overflow-hidden relative group">
-        <div className="absolute inset-0 bg-neutral-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
-            {/* Placeholder for now - can be replaced with actual images */}
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-neutral-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
             <div className="text-neutral-300 font-display text-9xl opacity-20 select-none">
-                {title.charAt(0)}
+              {title.charAt(0)}
             </div>
-        </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -85,10 +94,11 @@ export default function FeaturedWork() {
           />
 
           <Project
-            title="Calendai"
-            category="Productivity • AI Agent"
-            description="An intelligent scheduling assistant that streamlines your calendar management through natural language and automated coordination."
-            href="#"
+            title="CalendAI"
+            category="Productivity • Automation"
+            description="Automatic assignment scheduling for students. Upload your syllabus, connect Canvas, and let AI sync everything to your calendar."
+            href="/projects/calendai"
+            imageSrc="/calendai-project/hero-calendai.png"
             align="right"
           />
         </div>

@@ -24,13 +24,13 @@ const projects = [
     status: "In Development",
   },
   {
-    title: "Calendai",
-    tagline: "Intelligent Scheduling Assistant",
+    title: "CalendAI",
+    tagline: "Automatic Assignment Scheduling",
     description:
-      "An AI-powered scheduling tool that streamlines calendar management. (Description placeholder - focusing on intelligent time management and automated coordination).",
-    href: "#",
-    tags: ["AI", "Productivity", "SaaS"],
-    status: "Prototype",
+      "Born from start-of-term frustration. Built with a team of 4, CalendAI scrapes syllabi, Canvas, and professor websites to auto-sync all your assignments to Google Calendar. No more manual entry.",
+    href: "/projects/calendai",
+    tags: ["JavaScript", "Canvas API", "Google Calendar", "Web Scraping"],
+    status: "Completed",
   },
   {
     title: "Nexus Footwear",
