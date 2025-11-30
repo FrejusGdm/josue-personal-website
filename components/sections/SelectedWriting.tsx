@@ -6,22 +6,16 @@ import { ArrowUpRight } from "lucide-react";
 
 const writings = [
   {
-    title: "The Future of African NLP",
-    date: "Oct 2023",
+    title: "The curse/blessing of being an overachiever",
+    date: "Jan 2024",
     readTime: "5 min read",
-    href: "/writing", // Placeholder
+    href: "/writing/curse-blessing-overachiever",
   },
   {
-    title: "Why Immersion Matters in Language Learning",
-    date: "Sep 2023",
+    title: "A love letter to myself - read this when you are sad",
+    date: "Feb 2024",
     readTime: "4 min read",
-    href: "/writing",
-  },
-  {
-    title: "Building for the Next Billion Users",
-    date: "Aug 2023",
-    readTime: "6 min read",
-    href: "/writing",
+    href: "/writing/love-letter-to-myself",
   },
 ];
 

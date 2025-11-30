@@ -43,11 +43,11 @@ const projects = [
   },
   {
     title: "Davis Peace Project",
-    tagline: "Adja Language Documentation",
+    tagline: "Digitizing the Adja Language",
     description:
-      "Funded language documentation workshops in Benin, creating the first-ever translation dataset for the Adja language. This project laid the foundation for preserving under-resourced languages through digital tools.",
-    href: "#",
-    tags: ["Research", "Linguistics", "Social Impact"],
+      "Created the first-ever large-scale digital resource for the Adja language: 1,500+ translated sentences, video interviews with community elders, and partnerships with language preservation NGOs. A personal mission to preserve a language spoken by over a million people.",
+    href: "/projects/davis-peace-project",
+    tags: ["Research", "Linguistics", "Social Impact", "Language Preservation"],
     status: "Completed",
   },
   {

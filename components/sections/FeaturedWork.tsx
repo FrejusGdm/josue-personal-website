@@ -101,6 +101,14 @@ export default function FeaturedWork() {
             imageSrc="/calendai-project/hero-calendai.png"
             align="right"
           />
+
+          <Project
+            title="Davis Peace Project"
+            category="Research • Social Impact"
+            description="Digitizing the Adja language in Benin. Created the first-ever large-scale digital resource for a language spoken by over a million people."
+            href="/projects/davis-peace-project"
+            align="left"
+          />
         </div>
       </div>
     </section>
