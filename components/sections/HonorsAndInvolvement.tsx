@@ -12,16 +12,16 @@ const honors = [
     date: "June 2024 – Present",
     link: "https://www.stampsscholars.org/",
     previewText: "Merit-based award supporting exceptional students' leadership and research projects.",
-    description: "I was selected as 1 of 7 recipients from my class. This scholarship supports my leadership and research projects, specifically funding my work on the Adja-language corpus and AI-enabled instruction."
+    description: "I was selected as 1 of 7 recipients from my class, out of over 400,000 national applicants. This scholarship supports my leadership and research projects, specifically funding my work on the Adja-language corpus and AI-enabled instruction."
   },
   {
     title: "King Scholarship",
     organization: "King Philanthropies & Dartmouth College",
     logo: "king.png",
     date: "Sept 2022 – Present",
-    link: "https://kingphilanthropies.org/king-scholars/",
-    previewText: "Four-year full scholarship for students from low-income countries committed to alleviating poverty.",
-    description: "I was selected as 1 of 7 recipients from a class of 1,200+ students and a global applicant pool of over 10,000. It is a four-year full scholarship for students committed to alleviating poverty."
+    link: "https://students.dartmouth.edu/fgo/programs/king-scholars",
+    previewText: "Prestigious full-ride scholarship with leadership development for students committed to alleviating poverty.",
+    description: "I was selected as 1 of 7 recipients from a class of 1,200+ students. This prestigious full-ride scholarship includes leadership development and supports students committed to alleviating poverty."
   },
   {
     title: "Davis Peace Project",
