@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const projects = [
   {
+    year: "2025",
     title: "Echo",
     tagline: "Speech-first language learning",
     description:
@@ -15,6 +16,7 @@ const projects = [
     status: "Active",
   },
   {
+    year: "2024",
     title: "Project A",
     tagline: "Offline AI Education for Africa",
     description:
@@ -24,15 +26,17 @@ const projects = [
     status: "In Development",
   },
   {
-    title: "CalendAI",
-    tagline: "Automatic Assignment Scheduling",
+    year: "2024",
+    title: "Calendai",
+    tagline: "Intelligent Scheduling Assistant",
     description:
-      "Born from start-of-term frustration. Built with a team of 4, CalendAI scrapes syllabi, Canvas, and professor websites to auto-sync all your assignments to Google Calendar. No more manual entry.",
+      "An AI-powered scheduling tool that streamlines calendar management. (Description placeholder - focusing on intelligent time management and automated coordination).",
     href: "/projects/calendai",
-    tags: ["JavaScript", "Canvas API", "Google Calendar", "Web Scraping"],
-    status: "Completed",
+    tags: ["AI", "Productivity", "SaaS"],
+    status: "Prototype",
   },
   {
+    year: "2025",
     title: "Nexus Footwear",
     tagline: "Modern E-commerce Experience",
     description:
@@ -42,15 +46,17 @@ const projects = [
     status: "Completed",
   },
   {
+    year: "2024",
     title: "Davis Peace Project",
-    tagline: "Digitizing the Adja Language",
+    tagline: "Adja Language Documentation",
     description:
-      "Created the first-ever large-scale digital resource for the Adja language: 1,500+ translated sentences, video interviews with community elders, and partnerships with language preservation NGOs. A personal mission to preserve a language spoken by over a million people.",
-    href: "/projects/davis-peace-project",
-    tags: ["Research", "Linguistics", "Social Impact", "Language Preservation"],
+      "Funded language documentation workshops in Benin, creating the first-ever translation dataset for the Adja language. This project laid the foundation for preserving under-resourced languages through digital tools.",
+    href: "#",
+    tags: ["Research", "Linguistics", "Social Impact"],
     status: "Completed",
   },
   {
+    year: "2024 - Present",
     title: "Stamps Scholar Research",
     tagline: "Adja NMT System",
     description:
@@ -63,8 +69,8 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-20">
+    <div className="min-h-screen bg-white selection:bg-neutral-100">
+      <div className="max-w-2xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,87 +78,62 @@ export default function ProjectsPage() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 mb-20 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
 
-          <h1 className="font-display text-6xl md:text-7xl mb-6">Projects</h1>
-          <p className="font-sans text-xl text-neutral-600 leading-relaxed mb-16">
-            A collection of products, experiments, and research initiatives.
-          </p>
+          <header className="mb-0 text-center">
+            <h1 className="font-display text-5xl md:text-6xl mb-6 tracking-tight">Archive</h1>
+            <div className="w-px h-8 bg-neutral-200 mx-auto"></div>
+          </header>
 
-          {/* Project Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-0">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                className="flex"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
               >
-                <Link href={project.href} className="w-full block h-full">
-                  <motion.div
-                    whileHover={{
-                      y: -4,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 25,
-                      },
-                    }}
-                    className="group border border-neutral-200 rounded-2xl p-8 md:p-10 hover:border-neutral-300 hover:shadow-lg transition-all duration-500 cursor-pointer bg-white h-full flex flex-col"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <h2 className="text-2xl md:text-3xl font-display text-foreground mb-2 group-hover:text-neutral-700 transition-colors">
-                          {project.title}
-                        </h2>
-                      </div>
-                      <span className="text-[10px] uppercase tracking-wider font-sans text-neutral-500 bg-neutral-100 px-2 py-1 rounded-full">
-                        {project.status}
+                <Link 
+                    href={project.href} 
+                    className={`group block transition-all duration-500 ${index === 0 ? "pt-8 pb-12 md:pt-12 md:pb-16 border-t-0" : "py-12 md:py-16 border-t border-neutral-100"}`}
+                >
+                  <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                    {/* Left Column: Year */}
+                    <div className="w-24 flex-shrink-0">
+                      <span className="font-mono text-sm text-neutral-400 group-hover:text-neutral-900 transition-colors">
+                        {project.year}
                       </span>
                     </div>
-                    
-                    <p className="text-sm font-medium text-neutral-400 mb-4 uppercase tracking-wide">
-                        {project.tagline}
-                    </p>
 
-                    <p className="text-base font-sans text-neutral-600 leading-relaxed mb-6 flex-grow">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-sans text-neutral-500 border border-neutral-100 bg-neutral-50 px-2 py-1 rounded-md"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* Right Column: Content */}
+                    <div className="flex-1">
+                      <h2 className="font-display text-3xl md:text-4xl text-neutral-900 mb-3 group-hover:text-neutral-600 transition-colors">
+                        {project.title}
+                      </h2>
+                      <p className="font-sans text-sm font-medium text-neutral-500 mb-4 uppercase tracking-wider">
+                          {project.tagline}
+                      </p>
+                      <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-6 max-w-md">
+                        {project.description}
+                      </p>
+                      
+                      <div className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:gap-4 transition-all">
+                        View Case Study <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
-
-                    {/* CTA */}
-                    <div className="mt-auto pt-4 border-t border-neutral-100">
-                        <div
-                        className="inline-flex items-center gap-2 text-sm font-sans text-neutral-900 font-medium group-hover:gap-3 transition-all"
-                        >
-                        View Details
-                        <ArrowRight className="w-4 h-4" />
-                        </div>
-                    </div>
-                  </motion.div>
+                  </div>
                 </Link>
               </motion.div>
             ))}
+          </div>
+
+          <div className="py-12 border-t border-neutral-100 text-center text-neutral-400 text-sm font-mono">
+              End of Archive
           </div>
         </motion.div>
       </div>
