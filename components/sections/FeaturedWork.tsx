@@ -13,9 +13,18 @@ interface ProjectProps {
   href: string;
   color?: string;
   align?: "left" | "right";
+  imageVariant?: "cover" | "phone";
 }
 
-const Project = ({ title, category, description, href, imageSrc, align = "left" }: ProjectProps) => {
+const Project = ({
+  title,
+  category,
+  description,
+  href,
+  imageSrc,
+  align = "left",
+  imageVariant = "cover",
+}: ProjectProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -52,12 +61,27 @@ const Project = ({ title, category, description, href, imageSrc, align = "left" 
       {/* Visual Side */}
       <div className="flex-1 w-full aspect-[4/3] bg-neutral-100 rounded-2xl overflow-hidden relative group">
         {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
+          imageVariant === "phone" ? (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-28 sm:w-32 md:w-40 bg-white rounded-3xl border border-neutral-200 shadow-sm overflow-hidden">
+                <div className="relative w-full aspect-[9/16]">
+                  <Image
+                    src={imageSrc}
+                    alt={title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          )
         ) : (
           <div className="absolute inset-0 bg-neutral-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
             <div className="text-neutral-300 font-display text-9xl opacity-20 select-none">
@@ -90,6 +114,8 @@ export default function FeaturedWork() {
             category="Language Learning • AI"
             description="A speech-first language learning app that helps you master pronunciation and fluency through immersive conversation with AI."
             href="/projects/echo"
+            imageSrc="/echo-project/old-homepage.png"
+            imageVariant="phone"
             align="left"
           />
 
