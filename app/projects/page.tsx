@@ -10,27 +10,27 @@ const projects = [
     title: "Echo",
     tagline: "Speech-first language learning",
     description:
-      "Built from personal need while learning Chinese. Echo brings immersion back to language learning through natural conversation practice—no flashcards, no grammar drills, just speaking. Serving 100+ active users with AI-powered speech recognition and personalized feedback.",
+      "Started from my frustration learning Chinese. Echo is a speech focused language learning app that brings immersion back through real conversations instead of flashcards, serving 100+ learners with AI powered speech recognition and feedback.",
     href: "/projects/echo",
     tags: ["AI", "EdTech", "Speech Recognition", "Live Product"],
     status: "Active",
   },
+  // {
+  //   year: "2025",
+  //   title: "Project A",
+  //   tagline: "Offline AI Education for Africa",
+  //   description:
+  //     "An offline AI tutor designed for African classrooms and community spaces. Runs on devices like Raspberry Pi, supports languages such as Adja, and delivers adaptive lessons even without internet.",
+  //   href: "/projects/project-a",
+  //   tags: ["AI", "Edge Computing", "NLP", "Accessibility"],
+  //   status: "In Development",
+  // },
   {
-    year: "2024",
-    title: "Project A",
-    tagline: "Offline AI Education for Africa",
-    description:
-      "Developing an offline AI tutor designed specifically for African contexts. Features include edge AI deployment on Raspberry Pi, native African language support (starting with Adja), and adaptive personalized learning to function without internet access.",
-    href: "/projects/project-a",
-    tags: ["AI", "Edge Computing", "NLP", "Accessibility"],
-    status: "In Development",
-  },
-  {
-    year: "2024",
+    year: "2025",
     title: "Calendai",
     tagline: "Intelligent Scheduling Assistant",
     description:
-      "An AI-powered scheduling tool that streamlines calendar management. (Description placeholder - focusing on intelligent time management and automated coordination).",
+      "Centralizes college life by scraping syllabi, Canvas, and professor websites, then auto syncing every assignment and exam to Google Calendar.",
     href: "/projects/calendai",
     tags: ["AI", "Productivity", "SaaS"],
     status: "Prototype",
@@ -40,7 +40,7 @@ const projects = [
     title: "Nexus Footwear",
     tagline: "Modern E-commerce Experience",
     description:
-      "A comprehensive e-commerce platform for footwear, featuring 3D product visualization, seamless checkout flows, and a modern, responsive design system.",
+      "Footwear ecommerce experience with 3D product views, fast browsing, and a checkout flow tuned for mobile shoppers.",
     href: "#",
     tags: ["Web Dev", "E-commerce", "3D", "Design"],
     status: "Completed",
@@ -50,7 +50,7 @@ const projects = [
     title: "Davis Peace Project",
     tagline: "Adja Language Documentation",
     description:
-      "Funded language documentation workshops in Benin, creating the first-ever translation dataset for the Adja language. This project laid the foundation for preserving under-resourced languages through digital tools.",
+      "Language documentation workshops in Benin that created the first translation dataset for the Adja language and laid the groundwork to preserve it digitally.",
     href: "#",
     tags: ["Research", "Linguistics", "Social Impact"],
     status: "Completed",
@@ -60,7 +60,7 @@ const projects = [
     title: "Stamps Scholar Research",
     tagline: "Adja NMT System",
     description:
-      "Led the creation of the first-ever digital corpus of 10,000 French-Adja sentence pairs over 2 years. Developed a neural machine translation system using transfer learning and few-shot techniques to democratize access to information.",
+      "Multi year research effort to build a 10,000+ sentence French Adja corpus and a neural machine translation system using transfer learning and few shot techniques.",
     href: "#",
     tags: ["NLP", "Deep Learning", "Research", "Low-Resource Languages"],
     status: "Ongoing",

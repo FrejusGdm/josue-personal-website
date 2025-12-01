@@ -30,9 +30,7 @@ export default function DeepBio() {
                 {/* Texture overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-neutral-900/5 to-transparent pointer-events-none" />
               </div>
-              <p className="mt-4 text-xs font-sans text-neutral-400 text-right">
-                
-              </p>
+              <p className="mt-4 text-xs font-sans text-neutral-400 text-right"></p>
             </div>
           </motion.div>
 
@@ -46,7 +44,7 @@ export default function DeepBio() {
           >
             <div className="space-y-6 font-sans text-lg md:text-xl text-neutral-600 leading-relaxed">
               <p>
-                I grew up in <SmartLink href="https://en.wikipedia.org/wiki/Benin" external previewText="A nation in West Africa, known as the birthplace of the Vodun religion and home to the Dahomey Amazons." logo="benin.png">Benin</SmartLink>, a tiny country in West Africa. I ranked first in my national high school diploma (baccalauréat) with the 2nd highest score in the history of the exam in my country. This allowed me to attend <SmartLink href="https://dartmouth.edu" external previewText="An Ivy League research university in Hanover, New Hampshire." logo="dartmouth.png">Dartmouth College</SmartLink>, where I now study computer science and minor in Mandarin Chinese. I speak four languages—English, French, Chinese, and Adja. At Dartmouth, I am a <SmartLink href="https://students.dartmouth.edu/fgo/programs/king-scholars" external previewText="Prestigious full-ride scholarship with leadership development for students committed to alleviating poverty." logo="king.png">King Scholar</SmartLink> and a <SmartLink href="https://www.stampsscholars.org/" external previewText="Merit scholarship program supporting leadership, scholarship, and service." logo="stamps.png">Stamps Scholar</SmartLink>.
+                I grew up in <SmartLink href="https://en.wikipedia.org/wiki/Benin" external previewText="A nation in West Africa, known as the birthplace of the Vodun religion and home to the Dahomey Amazons." logo="benin.png">Benin</SmartLink>, a country in West Africa. I ranked first in my national high school diploma (baccalauréat) with the 2nd highest score in the history of the exam in my country. This allowed me to attend <SmartLink href="https://dartmouth.edu" external previewText="An Ivy League research university in Hanover, New Hampshire." logo="dartmouth.png">Dartmouth College</SmartLink>, where I now study computer science and minor in Mandarin Chinese. I speak four languages—English, French, Chinese, and Adja. At Dartmouth, I am a <SmartLink href="https://students.dartmouth.edu/fgo/programs/king-scholars" external previewText="Prestigious full-ride scholarship with leadership development for students committed to alleviating poverty." logo="king.png">King Scholar</SmartLink> and a <SmartLink href="https://www.stampsscholars.org/" external previewText="Merit scholarship program supporting leadership, scholarship, and service." logo="stamps.png">Stamps Scholar</SmartLink>.
               </p>
               <p>
                 I believe that technology, when used well and adapted to local contexts, can be powerful in solving problems and improving lives. That&apos;s what I want to do—build products that help people solve problems and improve their lives.

@@ -2,248 +2,300 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Mic, Users, Sparkles, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ExternalLink } from "lucide-react";
+import SmartLink from "@/components/ui/SmartLink";
 
-const features = [
-  {
-    icon: Mic,
-    title: "Speech-First Design",
-    description: "Practice speaking from day one. Echo prioritizes conversation over textbooks.",
-  },
-  {
-    icon: Users,
-    title: "Immersive Learning",
-    description: "Learn through natural conversations, not grammar drills. The way humans actually acquire languages.",
-  },
-  {
-    icon: Sparkles,
-    title: "Always Available",
-    description: "Your AI conversation partner is ready whenever you are. No scheduling, no pressure.",
-  },
+const homeScreen = {
+  src: "/echo-project/old-homepage.png",
+  label: "Home screen",
+};
+
+const otherScreens = [
+  { src: "/echo-project/old-roleplay-choose.png", label: "Roleplay topic selection" },
+  { src: "/echo-project/old-streak.png", label: "Streak and progress view" },
+  { src: "/echo-project/old-mascot.png", label: "Echo parrot mascot" },
+];
+
+const onboardingScreens = [
+  { src: "/echo-project/onboard-1.png", label: "Intro" },
+  { src: "/echo-project/onboard-2.png", label: "Native language" },
+  { src: "/echo-project/onboard-3.png", label: "Target language" },
+  { src: "/echo-project/onboard-4.png", label: "Why learn" },
+  { src: "/echo-project/onboard-5.png", label: "Interests" },
+  { src: "/echo-project/onboard-6.png", label: "Main challenge" },
+  { src: "/echo-project/onboard-7.png", label: "Practice frequency" },
+  { src: "/echo-project/onboard-8.png", label: "Current level" },
+  { src: "/echo-project/onboard-9.png", label: "Personalization" },
+  { src: "/echo-project/onboard-10.png", label: "Plan ready" },
+  { src: "/echo-project/onboard-11.png", label: "Permissions" },
+  { src: "/echo-project/onboard-12.png", label: "Your name" },
+  { src: "/echo-project/onboard-13.png", label: "Account details" },
+  { src: "/echo-project/onboard-14.png", label: "Call ready" },
+  { src: "/echo-project/onboard-15.png", label: "Voice choice" },
+  { src: "/echo-project/onboard-16.png", label: "Roleplay topic" },
 ];
 
 export default function EchoPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Back Navigation */}
-      <div className="border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-6">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-sans text-neutral-600 hover:text-neutral-900 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Projects
-          </Link>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white selection:bg-neutral-100">
+      <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
+        {/* Navigation */}
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-neutral-900 transition-colors mb-12"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Projects
+        </Link>
 
-      {/* Hero Section */}
-      <section className="py-20 md:py-28 border-b border-neutral-100">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+        {/* Header */}
+        <header className="mb-12 md:mb-16">
+          <h1 className="font-display text-4xl md:text-5xl text-neutral-900 mb-4 tracking-tight">
+            Echo
+          </h1>
+          <p className="text-xl font-sans text-neutral-600 leading-relaxed mb-4">
+            A speech focused language learning app born from my struggle to speak Chinese.
+          </p>
+          <a
+            href="https://useecho.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors"
           >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-display text-foreground mb-6 tracking-tight">
-              Echo
-            </h1>
-            <p className="text-2xl md:text-3xl font-sans text-neutral-700 leading-relaxed mb-8">
-              Speech-first language learning through immersion
-            </p>
-            <a
-              href="https://useecho.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-base font-sans text-foreground hover:text-neutral-600 transition-colors group"
-            >
-              Visit useecho.ai
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+            <ExternalLink className="w-3.5 h-3.5" />
+            Visit useecho.ai
+          </a>
+        </header>
 
-      {/* Origin Story */}
-      <section className="py-24 md:py-32 bg-neutral-50">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display text-foreground mb-8">
-              Why I Built Echo
+        {/* Main Content */}
+        <main className="space-y-16 md:space-y-20">
+          {/* Home screen */}
+          <section className="space-y-6">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400">
+              Home screen
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
-              <div>
-                <p className="text-lg md:text-xl font-sans text-neutral-700 leading-relaxed mb-6">
-                  When I was learning Chinese, I faced a problem that millions of language learners know too well: I had nobody to practice speaking with.
-                </p>
-                <p className="text-lg md:text-xl font-sans text-neutral-700 leading-relaxed mb-6">
-                  Apps taught me vocabulary and grammar, but speaking? That required real conversations—and those were hard to find. So I built Echo.
-                </p>
-                <p className="text-lg md:text-xl font-sans text-neutral-700 leading-relaxed">
-                  Echo is designed to bring immersion back to language learning. Instead of flashcards and multiple choice questions, you speak. From day one. Just like you learned your first language.
-                </p>
+            <div className="max-w-xs sm:max-w-sm bg-neutral-50 border border-neutral-100 rounded-lg overflow-hidden">
+              <div className="relative aspect-[9/16]">
+                <Image
+                  src={homeScreen.src}
+                  alt={homeScreen.label}
+                  fill
+                  className="object-cover"
+                />
               </div>
+              <p className="text-xs text-neutral-500 font-sans px-3 py-2">
+                {homeScreen.label}
+              </p>
+            </div>
+          </section>
 
-              {/* Image Placeholder */}
-              <div className="bg-neutral-100 rounded-2xl border-2 border-dashed border-neutral-300 flex items-center justify-center min-h-[300px]">
-                <p className="text-neutral-400 font-sans text-sm">
-                  [Screenshot placeholder]
-                </p>
+          {/* The Story */}
+          <section className="prose prose-neutral prose-lg max-w-none">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
+              The Story
+            </h2>
+            <p>
+              At Dartmouth, I had to take a language. Because I already spoke French, English, and some Adja,
+              I could have used French to breeze through the requirement. Instead, I decided to start from
+              zero and picked Chinese.
+            </p>
+            <p>
+              It was hard in a way I had never experienced before. For about a year I went through the full
+              routine: grammar drills, vocabulary lists, characters, reading and writing exercises. On paper,
+              I was progressing. But there was one thing that would not click. I still could not really speak.
+            </p>
+            <p>
+              We had speaking drills in class, and they helped, but they were not enough to give me real
+              confidence. I could memorize sentences, but when I tried to have a conversation, everything
+              froze. I knew that if I wanted to actually use Chinese in the real world, I needed much more
+              speaking practice than a classroom could give me.
+            </p>
+            <p>
+              Around the same time I was going deep into the AI world and paying attention to voice tools.
+              I realized that voice based AI systems were finally good enough to hold a close to real time
+              conversation. That was the moment when Echo started to form in my head.
+            </p>
+          </section>
+
+          {/* Building Echo */}
+          <section className="prose prose-neutral prose-lg max-w-none">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
+              Building The First Version
+            </h2>
+            <p>
+              I started Echo as a simple web app. The idea was straightforward: give learners an AI tutor
+              they could talk to at any time, in natural language, with feedback when they made mistakes.
+              You open the app, start speaking, and the tutor keeps the conversation going.
+            </p>
+            <p>
+              Very quickly I realized that even I did not want to practice a language in a browser tab.
+              Speaking practice belongs on your phone, where your microphone is, where you can walk and talk.
+              So over the summer, after getting the basic idea working on the web, I rebuilt Echo as a
+              mobile app.
+            </p>
+            <p>
+              I used Expo to build a full stack application that could run on iOS and Android. That meant
+              learning a lot about cross platform design, navigation, authentication, state management, and
+              how to keep latency low enough that a voice conversation feels natural.
+            </p>
+          </section>
+
+          {/* Onboarding flow */}
+          <section className="space-y-4">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400">
+              Onboarding flow
+            </h2>
+            <p className="font-sans text-neutral-600 text-base leading-relaxed max-w-xl">
+              Echo asks a series of questions about your native language, goals, challenges, and schedule
+              so the tutor can adapt the conversation to you.
+            </p>
+            <div className="-mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto pb-2">
+              <div className="flex gap-4 min-w-max">
+                {onboardingScreens.map((screen) => (
+                  <div
+                    key={screen.src}
+                    className="w-40 md:w-48 bg-neutral-50 border border-neutral-100 rounded-lg overflow-hidden flex-shrink-0"
+                  >
+                    <div className="relative aspect-[9/16]">
+                      <Image
+                        src={screen.src}
+                        alt={screen.label}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-[10px] text-neutral-500 font-sans px-2 py-1">
+                      {screen.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </section>
 
-      {/* Features */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-display text-foreground mb-16"
-          >
-            Key Features
-          </motion.h2>
+          {/* Other screens */}
+          <section className="space-y-4">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400">
+              Other screens
+            </h2>
+            <div className="-mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto pb-2">
+              <div className="flex gap-4 min-w-max">
+                {otherScreens.map((screen) => (
+                  <div
+                    key={screen.src}
+                    className="w-40 md:w-48 bg-neutral-50 border border-neutral-100 rounded-lg overflow-hidden flex-shrink-0"
+                  >
+                    <div className="relative aspect-[9/16]">
+                      <Image
+                        src={screen.src}
+                        alt={screen.label}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-[10px] text-neutral-500 font-sans px-2 py-1">
+                      {screen.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: index * 0.1,
-                    duration: 0.6,
-                  }}
-                  className="border border-neutral-200 rounded-xl p-6 md:p-8 hover:border-neutral-300 hover:shadow-md transition-all duration-300"
-                >
-                  <Icon className="w-8 h-8 text-foreground mb-5" strokeWidth={1.5} />
-                  <h3 className="text-xl md:text-2xl font-display text-foreground mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base font-sans text-neutral-700 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Image Placeholders */}
-      <section className="py-24 md:py-32 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-display text-foreground mb-16"
-          >
-            Product Screenshots
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((num) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: num * 0.1,
-                  duration: 0.5,
-                }}
-                className="bg-neutral-100 rounded-2xl border-2 border-dashed border-neutral-300 flex items-center justify-center min-h-[250px] md:min-h-[300px]"
+          {/* Voice Infrastructure */}
+          <section className="prose prose-neutral prose-lg max-w-none">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
+              Voice Infrastructure And Tools
+            </h2>
+            <p>
+              For orchestration I leaned heavily on{" "}
+              <SmartLink
+                href="https://vapi.ai"
+                external
+                previewText="Voice API platform for building AI calling and conversational systems."
               >
-                <p className="text-neutral-400 font-sans text-sm">
-                  [Screenshot {num} placeholder]
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Challenges */}
-      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display text-foreground mb-8">
-              Challenges & Learnings
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-2 border-neutral-300 pl-6">
-                <h3 className="text-xl font-display text-foreground mb-2">
-                  Speech Recognition Accuracy
-                </h3>
-                <p className="text-base md:text-lg font-sans text-neutral-700 leading-relaxed">
-                  Building reliable speech recognition for language learners with varying accents and pronunciation levels.
-                </p>
-              </div>
-              <div className="border-l-2 border-neutral-300 pl-6">
-                <h3 className="text-xl font-display text-foreground mb-2">
-                  Natural Conversation Flow
-                </h3>
-                <p className="text-base md:text-lg font-sans text-neutral-700 leading-relaxed">
-                  Creating AI conversations that feel natural and adapt to the learner&apos;s skill level in real-time.
-                </p>
-              </div>
-              <div className="border-l-2 border-neutral-300 pl-6">
-                <h3 className="text-xl font-display text-foreground mb-2">
-                  Balancing Structure & Freedom
-                </h3>
-                <p className="text-base md:text-lg font-sans text-neutral-700 leading-relaxed">
-                  Providing enough guidance for beginners while allowing advanced learners the freedom to explore.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 md:py-24 bg-neutral-50">
-        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-xl md:text-2xl font-sans text-neutral-700 leading-relaxed mb-8">
-              Echo is live and helping thousands of learners practice speaking every day.
+                Vapi
+              </SmartLink>
+              . Their platform made it possible to connect different pieces of the voice stack, but it came with its own challenges. I spent many hours
+              fighting with incomplete documentation, unexpected edge cases, and behavior that did not
+              always match what the docs described.
             </p>
-            <a
-              href="https://useecho.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-white rounded-xl font-sans text-base hover:bg-neutral-800 transition-colors duration-300 group"
-            >
-              Try Echo
-              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+            <p>
+              That meant I had to understand what was happening under the hood. I experimented with several
+              voice providers, including{" "}
+              <SmartLink
+                href="https://cartesia.ai"
+                external
+                previewText="Speech synthesis company with strong multilingual voices."
+              >
+                Cartesia
+              </SmartLink>{" "}
+              and{" "}
+              <SmartLink
+                href="https://elevenlabs.io"
+                external
+                previewText="A popular provider for realistic AI generated voices."
+              >
+                ElevenLabs
+              </SmartLink>
+              . Cartesia in particular stood out for how
+              natural and multilingual their voices sounded. Tuning latency, stability, and quality across
+              different providers taught me a lot about what makes a voice interface actually feel usable.
+            </p>
+            <p>
+              On the engineering side, Echo forced me to think across the whole stack at once: the mobile
+              client, the backend, security, rate limits, and cost. It was the first project where I felt
+              like I was building a real product, not just a demo.
+            </p>
+          </section>
+
+          {/* Adoption and Next Chapter */}
+          <section className="prose prose-neutral prose-lg max-w-none">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
+              What Happened Next
+            </h2>
+            <p>
+              After launching the mobile app, I brought around one hundred people into Echo to test it and
+              share feedback. Seeing other learners talk to a tool that started as a personal frustration
+              was surreal. Their responses made it clear that the problem I had with Chinese was not unique.
+            </p>
+            <p>
+              For a while everything was live. We had a working backend, the app was in the store, and people
+              were using it. But as I kept learning new things about product, infrastructure, and design, it
+              became obvious that the first version of Echo was not the one I wanted to scale.
+            </p>
+            <p>
+              I eventually decided to shut down the app so that I could rebuild it with a better foundation.
+              The next version will have a cleaner architecture, a more thoughtful experience, and a design
+              that matches what I have in mind for a tool people might use every day.
+            </p>
+          </section>
+
+          {/* Where Echo Goes From Here */}
+          <section className="prose prose-neutral prose-lg max-w-none">
+            <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
+              Still Ongoing
+            </h2>
+            <p>
+              Echo is technically a finished project, but it does not feel finished to me. It is the kind of
+              product I keep coming back to in my head. I want to rebuild it with everything I know now,
+              make the experience smoother, and eventually learn how to market it and grow it beyond my own
+              circle.
+            </p>
+            <p>
+              Design is the area where I am pushing myself the most. I am spending more time studying
+              interfaces, writing, and storytelling so that Echo feels less like a prototype and more like a
+              tool you would recommend to a friend.
+            </p>
+            <p>
+              If you are working on voice, language learning, or just enjoy talking about how people learn,
+              I would love to chat.
+            </p>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
+

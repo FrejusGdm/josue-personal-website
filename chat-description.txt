@@ -1,9 +1,0 @@
-Josué Godeme is a Beninese computer science student at Dartmouth College, He’s passionate about using AI, language technology, and education to create a fairer, more connected world — especially through low-resource language preservation and accessibility.
-
-i will build a startup aiming to make the internet accessible to people who speak underrepresented languages, and the creator of Echo, an AI-driven language learning app focused on speech and conversation.
-
-Josué’s work bridges NLP research, linguistics, and social impact. He’s received recognition such as the Davis Peace Project Grant for his fieldwork documenting the Aja language in Benin, and he’s active in communities like the Magnuson Center for Entrepreneurship and NSBE.
-
-He’s also an aspiring researcher and builder, currently exploring neural machine translation, AI education systems, and microSaaS tools. His long-term goal is to empower African education and healthcare systems through technology.
-
-Outside of academics and startups, he’s creative — he runs the project “A Guy with Too Many Ideas”, where he shares projects, reflections, and experiments at the intersection of AI, culture, and learning.

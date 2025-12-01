@@ -1,55 +1,19 @@
-Based on what I know about you, here's how I'd define you:
+Okay, let's go ahead and make just a tiny few changes. Somewhere, I think in the deep bio, I said that I'm from a country. Let's remove "tiny," let's just keep it a country. I don't want to put the name of my country negative or anything, so I would like to change that. Now the Echo project page, let's reformat it just like the Davis piece project or calendar AI: better structure, less space between the paragraphs, not like it is right now. You should go and check the Kind AI and Davis B's project. We want to make it feel like a blog, like Medium or some stuff like that, we are writing, that's the vibe we are going for.
 
-**Who you are:**
-You're a multilingual technologist and researcher bridging cultures and breaking down language barriers through AI. As a senior at Dartmouth studying Computer Science with a Chinese minor, you're pioneering NLP work for Adja—an under-resourced West African language from Benin—while co-founding Echo, a speech-focused AI language learning app.
+So for Echo, it's an interesting project because I'm going to tell you more. Don't use M-dashes by the way, just tell the story. 
 
-**What drives you:**
-You're passionate about democratizing education through technology, especially for underserved communities in Africa. Your work isn't just about technical achievement—it's about meaningful impact. Whether you're collecting datasets from native Adja speakers in Benin's Kouffo region or building tools to help people learn languages more effectively, you're focused on solving real problems for real people.
+I was learning Chinese. I already speak French, English, and a bit of the language Aja, which is spoken in my home country. At Dartmouth, it was a requirement to learn a new language. I could have run over that requirement, but I decided because I already knew French, I could basically skip that requirement. But I decided not to and I decided to learn a new language, Chinese, that I've never learned before. That was the first time I was learning Chinese.
 
-**Your unique perspective:**
-You ranked first among 80,000 students on your national high school diploma in Benin, then transitioned to English-language education in the US. Now you speak four languages and you're studying in Beijing, giving you a rare vantage point across African, American, and Chinese contexts. This positions you uniquely to build technology that actually works across cultural and linguistic boundaries.
+It was really, really hard. I took classes for about a year, learned the grammar, the vocabulary, I was able to write and read and so on and so forth. But one thing really bothered me, the fact that I could not really speak in Chinese. We did have drills where we practiced speaking, but it wasn't enough for me to actually gather a mastery of the language.
 
-**Where you're headed:**
-You're preparing for PhD programs (Stanford, MIT, Carnegie Mellon on your radar) with a clear vision: using AI to transform education in ways that work for everyone, not just the well-resourced. Your Schwarzman Scholars application and ongoing research show you're committed to building bridges—between languages, cultures, and opportunities.
+At that point, I've been already deep in the AI world and I realized that voice AI tools were good enough to give you a close to real-time conversation with AI tools. So I built Echo, which is just a speech-focused language learning app that gives you a tutor that corrects you when you make mistakes and so on and so forth.
 
-Would you like me to adjust the tone or emphasis for your website?
+Initially, I built a web app, then I scripted and over the summer, I think I started in March, then I scripted the website and I built an app because even myself didn't see myself learning a language on a web app. Then I did the mobile app. After the mobile app, I got a hundred users to try it and give me feedback. It was great, great things. I've learned so much about it.
 
------
- So on the project page, how do we want to display the projects? I guess 'echo' should maybe redirect to
-  an echo page where I explain why I'm building 'echo', and so on and so forth for some pictures of
-  myself, the issues that I face, and so on and so forth, but don't spend too much time doing xyf.
+I've talked about, for example, Vapi and I've been using Vapi for a lot of the orchestration and battling with Vapi's documentation and everything that they had that was wrong. Their documentation back then wasn't that good and I think that even still today it's still not the best.
 
-  The second thing is that what I'm interested in is project A. So for project A, when I click on it, I
-  want to see 'Climaflake.' I would like to have a page like sesame.com https://www.sesame.com/,
-  '/var/folders/k8/4ml9j7qd0wl8_r4dvk5rkmjm0000gn/T/TemporaryItems/NSIRD_screencaptureui_ZO5YZr/Screenshot
-  2025-10-29 at 12.49.02 PM.png' explaining my vision around education and AI in africa. here is what we
-  are building for project A "We are building an AI tutor designed for Africa, with three defining
-  features:
-      1.    Always available: runs on small, efficient LLMs deployed on the edge, so students can learn
-  offline without constant internet access.
-      2.    Truly local: supports native African languages and aligns with national curricula (e.g.,
-  Beninese, Nigerian exam standards), so the learning experience is culturally and academically relevant.
-      3.    Adaptive and expansive: beyond curriculum support, the tutor can personalize learning to each
-  student curiosity, helping them explore topics they are curious about (e.g., Pythagoras’ theorem) with
-  clear explanations, interactive guidance, and step-by-step learning paths.(1) - that can run on device
-  (common cell phone, tablet, etc)
-  (2) models trained from ground up on African languages and fine tuned on theIexams
-  (3) and also add cultural awareness. Like there are many subtle cultural differences in communication
-  that just dont work in Africa and it needs to integrate well to the culture. (e.g. how we refer to
-  people of different ages is different in Ethiopia)
-  "\
-  \
-  to reach that point, we will have to solve a lot of problems (i want something like the sesame page)But
-  the idea is that to be able to do that, we have to solve multiple problems:
+I used Vapi and that allowed me to dive a lot into a lot of different voice providers: Cartesia, Eleven Labs. Shout out to Cartesia, I think they have one of the best voices out there, especially for multilingual stuff. I've learned a lot, built a full stack app in Expo, learned a lot about Expo, cross-platform development, back-end, front-end, and just security. It was just an amazing experience.
 
-  - Being able to run small models on the edge using the devices that are available at home
+Currently, everything was live. We even had a mobile app up there on the App Store. Everything was live with everything, but now I shut down the app and I want to rebuild it from scratch using better knowledge that I have right now from all of the time and also building a better experience for Echo.
 
-  - Being able to get good enough translators or LLM in those native languages
-
-  - Adding a physical infrastructure to this
-
-  Because in Africa, education can rarely be solved by just an app. We need a real physical, I'm thinking
-  about the heart, it's going to be like some kind of modulable learning centers.
-
-  Anyway, it's a huge vision and I would just like to lay down there and see what's up. I don't know.
-  
+I think design has always been my weak point and I've been working on improving my design and stuff like that and just trying to think about what I want to build. Echo is a project that is done but I'm still doing actively because I want to rebuild the app and scale it, learn more about marketing and variety. If you would love to talk about that, I would love to talk with you. 
