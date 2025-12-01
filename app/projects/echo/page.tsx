@@ -75,13 +75,13 @@ export default function EchoPage() {
             <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400">
               Home screen
             </h2>
-            <div className="max-w-xs sm:max-w-sm bg-neutral-50 border border-neutral-100 rounded-lg overflow-hidden">
-              <div className="relative aspect-[9/16]">
+            <div className="w-36 sm:w-44 md:w-52 bg-neutral-50 border border-neutral-100 rounded-lg overflow-hidden">
+              <div className="relative w-full aspect-[9/16]">
                 <Image
                   src={homeScreen.src}
                   alt={homeScreen.label}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <p className="text-xs text-neutral-500 font-sans px-3 py-2">
