@@ -38,11 +38,11 @@ const projects = [
   {
     year: "2025",
     title: "Nexus Footwear",
-    tagline: "Modern E-commerce Experience",
+    tagline: "Custom 3D-Printed Shoe E-commerce",
     description:
-      "Footwear ecommerce experience with 3D product views, fast browsing, and a checkout flow tuned for mobile shoppers.",
-    href: "#",
-    tags: ["Web Dev", "E-commerce", "3D", "Design"],
+      "Built the full e-commerce platform for a custom 3D-printed shoe company. Integrated Next.js frontend, Express.js backend, MongoDB, and Stripe payments. A collaboration with friends turning their vision into a real product.",
+    href: "/projects/nexus",
+    tags: ["Web Dev", "E-commerce", "Full-Stack", "Stripe"],
     status: "Completed",
   },
   {
