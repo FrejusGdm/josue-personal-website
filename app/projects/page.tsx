@@ -85,8 +85,8 @@ export default function ProjectsPage() {
           </Link>
 
           <header className="mb-0 text-center">
-            <h1 className="font-display text-5xl md:text-6xl mb-6 tracking-tight">Archive</h1>
-            <div className="w-px h-8 bg-neutral-200 mx-auto"></div>
+            <h1 className="font-display text-5xl md:text-6xl mb-4 tracking-tight">Projects</h1>
+            <div className="w-px h-4 bg-neutral-200 mx-auto"></div>
           </header>
 
           <div className="space-y-0">
@@ -100,7 +100,7 @@ export default function ProjectsPage() {
               >
                 <Link 
                     href={project.href} 
-                    className={`group block transition-all duration-500 ${index === 0 ? "pt-8 pb-12 md:pt-12 md:pb-16 border-t-0" : "py-12 md:py-16 border-t border-neutral-100"}`}
+                    className={`group block transition-all duration-500 ${index === 0 ? "pt-4 pb-12 md:pt-6 md:pb-16 border-t-0" : "py-12 md:py-16 border-t border-neutral-100"}`}
                 >
                   <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     {/* Left Column: Year */}
@@ -133,7 +133,7 @@ export default function ProjectsPage() {
           </div>
 
           <div className="py-12 border-t border-neutral-100 text-center text-neutral-400 text-sm font-mono">
-              End of Archive
+              End of Projects
           </div>
         </motion.div>
       </div>
