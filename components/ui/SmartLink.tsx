@@ -22,20 +22,21 @@ export default function SmartLink({ children, href, previewText, previewImage, e
   const linkProps = external ? { href, target: "_blank", rel: "noopener noreferrer" } : { href };
 
   return (
-    <span className="relative inline-block">
+    <span className="relative inline">
       <LinkComponent
         {...linkProps}
-        className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors cursor-pointer inline-flex items-center gap-1"
+        className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {logo && (
-          <Image
+          <img
             src={`/logos/${logo}`}
             alt=""
             width={14}
             height={14}
-            className="object-contain"
+            className="inline-block mr-1 relative"
+            style={{ top: '1px' }}
           />
         )}
         {children}

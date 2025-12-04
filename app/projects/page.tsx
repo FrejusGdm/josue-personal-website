@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const projects = [
@@ -14,6 +15,7 @@ const projects = [
     href: "/projects/echo",
     tags: ["AI", "EdTech", "Speech Recognition", "Live Product"],
     status: "Active",
+    image: "/echo-project/old-homepage.png",
   },
   // {
   //   year: "2025",
@@ -24,6 +26,7 @@ const projects = [
   //   href: "/projects/project-a",
   //   tags: ["AI", "Edge Computing", "NLP", "Accessibility"],
   //   status: "In Development",
+  //   image: "/placeholder.png",
   // },
   {
     year: "2025",
@@ -34,6 +37,7 @@ const projects = [
     href: "/projects/calendai",
     tags: ["AI", "Productivity", "SaaS"],
     status: "Prototype",
+    image: "/calendai-project/hero-calendai.png",
   },
   {
     year: "2025",
@@ -44,6 +48,7 @@ const projects = [
     href: "/projects/nexus",
     tags: ["Web Dev", "E-commerce", "Full-Stack", "Stripe"],
     status: "Completed",
+    image: "/nexus/new-love-this.png",
   },
   {
     year: "2024",
@@ -54,6 +59,7 @@ const projects = [
     href: "#",
     tags: ["Research", "Linguistics", "Social Impact"],
     status: "Completed",
+    image: "/logos/benin.png", // Placeholder - using logo for now as it's relevant
   },
   {
     year: "2024 - Present",
@@ -64,13 +70,15 @@ const projects = [
     href: "#",
     tags: ["NLP", "Deep Learning", "Research", "Low-Resource Languages"],
     status: "Ongoing",
+    image: "/logos/stamps.png", // Updated to Stamps logo
+    isLogo: true, // Flag to handle object-fit differently
   },
 ];
 
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white selection:bg-neutral-100">
-      <div className="max-w-2xl mx-auto px-6 py-20">
+      <div className="max-w-6xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,9 +92,11 @@ export default function ProjectsPage() {
             Back to Home
           </Link>
 
-          <header className="mb-0 text-center">
-            <h1 className="font-display text-5xl md:text-6xl mb-4 tracking-tight">Projects</h1>
-            <div className="w-px h-4 bg-neutral-200 mx-auto"></div>
+          <header className="mb-16 md:mb-24 text-center md:text-left">
+            <h1 className="font-display text-5xl md:text-7xl mb-6 tracking-tight">Projects</h1>
+            <p className="font-sans text-xl text-neutral-500 max-w-2xl">
+              A collection of products, experiments, and research exploring the intersection of AI and human experience.
+            </p>
           </header>
 
           <div className="space-y-0">
@@ -100,31 +110,45 @@ export default function ProjectsPage() {
               >
                 <Link 
                     href={project.href} 
-                    className={`group block transition-all duration-500 ${index === 0 ? "pt-4 pb-12 md:pt-6 md:pb-16 border-t-0" : "py-12 md:py-16 border-t border-neutral-100"}`}
+                    className={`group block transition-all duration-500 ${index === 0 ? "pt-4 pb-16 md:pt-6 md:pb-24 border-t-0" : "py-16 md:py-24 border-t border-neutral-100"}`}
                 >
-                  <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                    {/* Left Column: Year */}
-                    <div className="w-24 flex-shrink-0">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+                    {/* Year Column */}
+                    <div className="md:col-span-2 flex-shrink-0 pt-2">
                       <span className="font-mono text-sm text-neutral-400 group-hover:text-neutral-900 transition-colors">
                         {project.year}
                       </span>
                     </div>
 
-                    {/* Right Column: Content */}
-                    <div className="flex-1">
+                    {/* Text Content Column */}
+                    <div className="md:col-span-5">
                       <h2 className="font-display text-3xl md:text-4xl text-neutral-900 mb-3 group-hover:text-neutral-600 transition-colors">
                         {project.title}
                       </h2>
-                      <p className="font-sans text-sm font-medium text-neutral-500 mb-4 uppercase tracking-wider">
+                      <p className="font-sans text-sm font-medium text-neutral-500 mb-6 uppercase tracking-wider">
                           {project.tagline}
                       </p>
-                      <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-6 max-w-md">
+                      <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-8">
                         {project.description}
                       </p>
                       
                       <div className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:gap-4 transition-all">
                         View Case Study <ArrowRight className="w-4 h-4" />
                       </div>
+                    </div>
+
+                    {/* Image Column */}
+                    <div className="md:col-span-5 relative">
+                       <div className={`aspect-[4/3] md:aspect-square w-full relative bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100 group-hover:border-neutral-200 transition-colors shadow-sm group-hover:shadow-md ${project.isLogo ? 'p-8 md:p-16' : ''}`}>
+                          {project.image && (
+                            <Image 
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className={`${project.isLogo ? 'object-contain p-4' : 'object-cover'} transition-transform duration-700 group-hover:scale-105`}
+                            />
+                          )}
+                       </div>
                     </div>
                   </div>
                 </Link>

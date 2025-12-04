@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
+import SmartLink from "@/components/ui/SmartLink";
 
 const techStack = [
   {
@@ -28,9 +29,9 @@ const techStack = [
 ];
 
 const teamMembers = [
-  { name: "Aren", role: "Marketing", background: "Econ" },
-  { name: "Nathan", role: "Product", background: "Mechanical Engineering" },
-  { name: "Nate", role: "Strategy", background: "CS & Econ" },
+  { name: "Aren", role: "Marketing", background: "Econ", linkedin: "https://www.linkedin.com/in/arencarlson/" },
+  { name: "Nathan", role: "Product", background: "Mechanical Engineering", linkedin: "https://www.linkedin.com/in/nathan-hammerschmitt-le-gal-076720246/" },
+  { name: "Nate", role: "Strategy", background: "CS & Econ", linkedin: "https://www.linkedin.com/in/nathaniel-nate-abbott/" },
 ];
 
 export default function NexusPage() {
@@ -80,7 +81,7 @@ export default function NexusPage() {
               How It Started
             </h2>
             <p>
-              A few friends of mine, Aren, Nathan, and Nate, were building
+              A few friends of mine, <SmartLink href="https://www.linkedin.com/in/arencarlson/" external logo="linkedin.png">Aren</SmartLink>, <SmartLink href="https://www.linkedin.com/in/nathan-hammerschmitt-le-gal-076720246/" external logo="linkedin.png">Nathan</SmartLink>, and <SmartLink href="https://www.linkedin.com/in/nathaniel-nate-abbott/" external logo="linkedin.png">Nate</SmartLink>, were building
               something cool: a custom 3D shoe printing company. The idea
               started with people who have bunions or other foot issues, folks
               who struggle to find shoes that actually fit. They saw a gap and
@@ -112,7 +113,9 @@ export default function NexusPage() {
                   className="p-4 border border-neutral-100 rounded-lg"
                 >
                   <div className="font-medium text-neutral-900 mb-1">
-                    {member.name}
+                    <SmartLink href={member.linkedin} external logo="linkedin.png">
+                      {member.name}
+                    </SmartLink>
                   </div>
                   <div className="text-sm text-neutral-500">
                     {member.role} · {member.background}
@@ -185,24 +188,63 @@ export default function NexusPage() {
               </div>
             </div>
 
-            {/* New Version Placeholder */}
+            {/* New Version */}
             <div>
               <p className="text-sm font-medium text-neutral-400 mb-4">
                 Current Version
               </p>
-              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 flex items-center justify-center">
-                <div className="text-center text-neutral-400">
-                  <p className="text-sm">New screenshots coming soon</p>
-                  <a
-                    href="https://nexusfootwear.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-neutral-900 hover:underline mt-2 inline-flex items-center gap-1"
-                  >
-                    Visit the live site
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+              <div className="space-y-4">
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-neutral-100 bg-white">
+                  <Image
+                    src="/nexus/new-hero.png"
+                    alt="New Nexus hero section"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-neutral-100 bg-white">
+                  <Image
+                    src="/nexus/new-love-this.png"
+                    alt="New Nexus homepage section"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-neutral-100 bg-white">
+                    <Image
+                      src="/nexus/new-cool-section.png"
+                      alt="New Nexus cool section"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-neutral-100 bg-white">
+                    <Image
+                      src="/nexus/new-shop-page.png"
+                      alt="New Nexus shop page"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Walkthrough */}
+            <div className="mt-8">
+              <p className="text-sm font-medium text-neutral-400 mb-4">
+                Full Walkthrough
+              </p>
+              <div className="relative w-full overflow-hidden rounded-lg border border-neutral-100">
+                <video
+                  src="/nexus/new-video.mov"
+                  controls
+                  className="w-full"
+                  poster="/nexus/new-hero.png"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </section>

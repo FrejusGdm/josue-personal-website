@@ -34,6 +34,18 @@ const editorialUltrabold = localFont({
 export const metadata: Metadata = {
   title: "Josue Godeme - Researcher, Builder, Designer",
   description: "Personal website of Josue Godeme - exploring AI, HCI, and creative expression through research and building.",
+  openGraph: {
+    title: "Josue Godeme - Researcher, Builder, Designer",
+    description: "Personal website of Josue Godeme - exploring AI, HCI, and creative expression through research and building.",
+    images: [], // Explicitly empty to prevent scraping random project images
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Josue Godeme",
+    description: "Researcher, Builder, Designer",
+    images: [], // Explicitly empty
+  },
 };
 
 export default function RootLayout({
