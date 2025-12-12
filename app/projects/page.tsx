@@ -51,12 +51,23 @@ const projects = [
     image: "/nexus/new-love-this.png",
   },
   {
+    year: "2025",
+    title: "Forge",
+    tagline: "AI-Generated 3D Keycaps",
+    description:
+      "Built in a week with friends. Type a prompt, pick your material and profile, and get an interactive 3D keycap model. Powered by Gemini for 2D generation and Trellis for image-to-3D conversion.",
+    href: "/projects/forge",
+    tags: ["AI", "3D", "Generative", "Full-Stack"],
+    status: "Prototype",
+    image: "/forge-project/homepage.png",
+  },
+  {
     year: "2024",
     title: "Davis Peace Project",
     tagline: "Adja Language Documentation",
     description:
       "Language documentation workshops in Benin that created the first translation dataset for the Adja language and laid the groundwork to preserve it digitally.",
-    href: "#",
+    href: "/projects/davis-peace-project",
     tags: ["Research", "Linguistics", "Social Impact"],
     status: "Completed",
     image: "/logos/benin.png", // Placeholder - using logo for now as it's relevant
