@@ -59,7 +59,7 @@ const projects = [
     href: "/projects/forge",
     tags: ["AI", "3D", "Generative", "Full-Stack"],
     status: "Prototype",
-    image: "/forge-project/homepage.png",
+    image: "/forge-project/forge-hero.png",
   },
   {
     year: "2024",
