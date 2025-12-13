@@ -77,7 +77,7 @@ export default function ForgePage() {
 
           <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-neutral-500">
             <a
-              href="https://forge-keycaps.vercel.app"
+              href="https://project-3d-frontend.onrender.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 hover:text-neutral-900 transition-colors"
@@ -113,9 +113,9 @@ export default function ForgePage() {
               How It Started
             </h2>
             <p>
-              Andrew Wu, a mechanical engineering major at my school, had this idea: what if you could
+              Andrew Wu, a mechanical engineering major and friend of mine, had this idea: what if you could
               design custom mechanical keyboard keycaps using AI? Just type a description and get a
-              3D model ready for printing. He was connected to me through our mutual friend Josh,
+              3D model ready for printing. I teamed up with Andrew and another friend, Josh,
               and within a week we had a working prototype.
             </p>
             <p>
