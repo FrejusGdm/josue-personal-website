@@ -6,6 +6,8 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 // Define the directory where essays are stored
 const contentDir = path.join(process.cwd(), 'content/essays');
 
+export type EssaySource = 'local' | 'substack';
+
 export type Essay = {
   slug: string;
   title: string;
@@ -14,6 +16,8 @@ export type Essay = {
   readTime: string;
   content: React.ReactNode;
   frontmatter: Record<string, unknown>;
+  source: EssaySource;
+  substackUrl?: string;
 };
 
 export type EssayMeta = Omit<Essay, 'content'>;
@@ -37,6 +41,7 @@ export async function getEssayBySlug(slug: string): Promise<Essay | undefined> {
       readTime: frontmatter.readTime as string,
       content,
       frontmatter,
+      source: 'local' as const,
     };
   } catch {
     return undefined;
@@ -65,6 +70,7 @@ export async function getAllEssays(): Promise<EssayMeta[]> {
         date: data.date,
         readTime: data.readTime,
         frontmatter: data,
+        source: 'local' as const,
       };
     })
   );

@@ -1,5 +1,5 @@
-import { getEssayBySlug, getAllEssays } from "@/lib/mdx";
-import { notFound } from "next/navigation";
+import { getEssayBySlug, getAllEssays } from "@/lib/essays";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -25,12 +25,20 @@ export async function generateStaticParams() {
   }));
 }
 
+// Enable ISR - revalidate every hour
+export const revalidate = 3600;
+
 export default async function EssayPage({ params }: Props) {
   const { slug } = await params;
   const essay = await getEssayBySlug(slug);
 
   if (!essay) {
     notFound();
+  }
+
+  // If it's a Substack post, redirect to the original Substack URL
+  if (essay.source === 'substack' && essay.substackUrl) {
+    redirect(essay.substackUrl);
   }
 
   return (

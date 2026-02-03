@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllEssays } from "@/lib/mdx";
+import { getAllEssays } from "@/lib/essays";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata = {
