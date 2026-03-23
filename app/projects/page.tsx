@@ -1,107 +1,34 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const projects = [
-  {
-    year: "2025",
-    title: "Echo",
-    tagline: "Speech-first language learning",
-    description:
-      "Started from my frustration learning Chinese. Echo is a speech focused language learning app that brings immersion back through real conversations instead of flashcards, serving 100+ learners with AI powered speech recognition and feedback.",
-    href: "/projects/echo",
-    tags: ["AI", "EdTech", "Speech Recognition", "Live Product"],
-    status: "Active",
-    image: "/echo-project/old-homepage.png",
-  },
-  // {
-  //   year: "2025",
-  //   title: "Project A",
-  //   tagline: "Offline AI Education for Africa",
-  //   description:
-  //     "An offline AI tutor designed for African classrooms and community spaces. Runs on devices like Raspberry Pi, supports languages such as Adja, and delivers adaptive lessons even without internet.",
-  //   href: "/projects/project-a",
-  //   tags: ["AI", "Edge Computing", "NLP", "Accessibility"],
-  //   status: "In Development",
-  //   image: "/placeholder.png",
-  // },
-  {
-    year: "2025",
-    title: "Calendai",
-    tagline: "Intelligent Scheduling Assistant",
-    description:
-      "Centralizes college life by scraping syllabi, Canvas, and professor websites, then auto syncing every assignment and exam to Google Calendar.",
-    href: "/projects/calendai",
-    tags: ["AI", "Productivity", "SaaS"],
-    status: "Prototype",
-    image: "/calendai-project/hero-calendai.png",
-  },
-  {
-    year: "2025",
-    title: "Nexus Footwear",
-    tagline: "Custom 3D-Printed Shoe E-commerce",
-    description:
-      "Built the full e-commerce platform for a custom 3D-printed shoe company. Integrated Next.js frontend, Express.js backend, MongoDB, and Stripe payments. A collaboration with friends turning their vision into a real product.",
-    href: "/projects/nexus",
-    tags: ["Web Dev", "E-commerce", "Full-Stack", "Stripe"],
-    status: "Completed",
-    image: "/nexus/new-love-this.png",
-  },
-  {
-    year: "2025",
-    title: "Forge",
-    tagline: "AI-Generated 3D Keycaps",
-    description:
-      "Built in a week with friends. Type a prompt, pick your material and profile, and get an interactive 3D keycap model. Powered by Gemini for 2D generation and Trellis for image-to-3D conversion.",
-    href: "/projects/forge",
-    tags: ["AI", "3D", "Generative", "Full-Stack"],
-    status: "Prototype",
-    image: "/forge-project/forge-hero.png",
-  },
-  {
-    year: "2024",
-    title: "Davis Peace Project",
-    tagline: "Adja Language Documentation",
-    description:
-      "Language documentation workshops in Benin that created the first translation dataset for the Adja language and laid the groundwork to preserve it digitally.",
-    href: "/projects/davis-peace-project",
-    tags: ["Research", "Linguistics", "Social Impact"],
-    status: "Completed",
-    image: "/logos/benin.png", // Placeholder - using logo for now as it's relevant
-  },
-  {
-    year: "2024 - Present",
-    title: "Stamps Scholar Research",
-    tagline: "Adja NMT System",
-    description:
-      "Multi year research effort to build a 10,000+ sentence French Adja corpus and a neural machine translation system using transfer learning and few shot techniques.",
-    href: "#",
-    tags: ["NLP", "Deep Learning", "Research", "Low-Resource Languages"],
-    status: "Ongoing",
-    image: "/logos/stamps.png", // Updated to Stamps logo
-    isLogo: true, // Flag to handle object-fit differently
-  },
-];
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { projects } from "./data";
 
 export default function ProjectsPage() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const activeProject = hoveredIndex !== null ? projects[hoveredIndex] : projects[0];
+
   return (
     <div className="min-h-screen bg-white selection:bg-neutral-100">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 mb-20 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
+          <div className="flex justify-between items-center mb-20">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
 
           <header className="mb-16 md:mb-24 text-center md:text-left">
             <h1 className="font-display text-5xl md:text-7xl mb-6 tracking-tight">Projects</h1>
@@ -110,64 +37,80 @@ export default function ProjectsPage() {
             </p>
           </header>
 
-          <div className="space-y-0">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link 
-                    href={project.href} 
-                    className={`group block transition-all duration-500 ${index === 0 ? "pt-4 pb-16 md:pt-6 md:pb-24 border-t-0" : "py-16 md:py-24 border-t border-neutral-100"}`}
+          <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 relative">
+            {/* List Side */}
+            <div className="w-full lg:w-1/2 flex flex-col border-t border-neutral-200">
+              {projects.map((project, index) => (
+                <Link
+                  key={project.title}
+                  href={project.href}
+                  className="group block py-8 md:py-12 border-b border-neutral-200 hover:bg-neutral-50 transition-colors -mx-6 px-6 lg:mx-0 lg:px-4 rounded-xl"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-                    {/* Year Column */}
-                    <div className="md:col-span-2 flex-shrink-0 pt-2">
-                      <span className="font-mono text-sm text-neutral-400 group-hover:text-neutral-900 transition-colors">
-                        {project.year}
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-4">
+                    <h2 className="font-display text-3xl md:text-4xl text-neutral-900 flex items-center gap-3">
+                      {project.title}
+                      <ArrowUpRight className="w-6 h-6 opacity-0 -translate-y-2 translate-x-2 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
+                    </h2>
+                    <span className="font-mono text-sm text-neutral-400 shrink-0">
+                      {project.year}
+                    </span>
+                  </div>
+                  <p className="font-sans text-sm font-medium text-neutral-500 mb-2 uppercase tracking-wider">
+                    {project.tagline}
+                  </p>
+                  <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-4 max-w-xl">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag} className="text-xs font-mono px-3 py-1 bg-white border border-neutral-200 rounded-full text-neutral-500">
+                        {tag}
                       </span>
-                    </div>
-
-                    {/* Text Content Column */}
-                    <div className="md:col-span-5">
-                      <h2 className="font-display text-3xl md:text-4xl text-neutral-900 mb-3 group-hover:text-neutral-600 transition-colors">
-                        {project.title}
-                      </h2>
-                      <p className="font-sans text-sm font-medium text-neutral-500 mb-6 uppercase tracking-wider">
-                          {project.tagline}
-                      </p>
-                      <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-8">
-                        {project.description}
-                      </p>
-                      
-                      <div className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:gap-4 transition-all">
-                        View Case Study <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-
-                    {/* Image Column */}
-                    <div className="md:col-span-5 relative">
-                       <div className={`aspect-[4/3] md:aspect-square w-full relative bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100 group-hover:border-neutral-200 transition-colors shadow-sm group-hover:shadow-md ${project.isLogo ? 'p-8 md:p-16' : ''}`}>
-                          {project.image && (
-                            <Image 
-                              src={project.image}
-                              alt={project.title}
-                              fill
-                              className={`${project.isLogo ? 'object-contain p-4' : 'object-cover'} transition-transform duration-700 group-hover:scale-105`}
-                            />
-                          )}
-                       </div>
-                    </div>
+                    ))}
                   </div>
                 </Link>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+
+            {/* Media Side (Sticky) */}
+            <div className="hidden lg:block w-full lg:w-1/2 relative">
+              <div className="sticky top-32 w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200 shadow-xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeProject.title}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-neutral-50"
+                  >
+                    {activeProject.video ? (
+                      <video
+                        src={activeProject.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                        poster={activeProject.image}
+                      />
+                    ) : activeProject.image && (
+                      <Image 
+                        src={activeProject.image}
+                        alt={activeProject.title}
+                        fill
+                        className={activeProject.isLogo ? 'object-contain p-16' : 'object-cover'}
+                      />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
 
-          <div className="py-12 border-t border-neutral-100 text-center text-neutral-400 text-sm font-mono">
+          <div className="mt-32 pt-12 border-t border-neutral-100 text-center text-neutral-400 text-sm font-mono">
               End of Projects
           </div>
         </motion.div>
