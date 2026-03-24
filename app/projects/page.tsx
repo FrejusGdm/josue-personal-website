@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,8 +9,30 @@ import { projects } from "./data";
 
 export default function ProjectsPage() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [visibleIndex, setVisibleIndex] = useState(0);
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  const activeProject = hoveredIndex !== null ? projects[hoveredIndex] : projects[0];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.indexOf(entry.target as HTMLAnchorElement);
+            if (index !== -1) setVisibleIndex(index);
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    for (const ref of cardRefs.current) {
+      if (ref) observer.observe(ref);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const activeProject = hoveredIndex !== null ? projects[hoveredIndex] : projects[visibleIndex];
 
   return (
     <div className="min-h-screen bg-white selection:bg-neutral-100">
@@ -44,6 +66,7 @@ export default function ProjectsPage() {
                 <Link
                   key={project.title}
                   href={project.href}
+                  ref={(el) => { cardRefs.current[index] = el; }}
                   className="group block py-8 md:py-12 border-b border-neutral-200 hover:bg-neutral-50 transition-colors -mx-6 px-6 lg:mx-0 lg:px-4 rounded-xl"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
