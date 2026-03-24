@@ -20,7 +20,6 @@ export const projects = [
     tags: ["Next.js", "AI", "OAuth", "OpenRouter"],
     status: "Active",
     image: "/who-do-you-know/screenshot.png",
-    video: "/who-do-you-know/demo-whoYouKnow.mp4",
   },
   {
     year: "2025",
