@@ -275,22 +275,23 @@ export default function EchoPage() {
           {/* Where Echo Goes From Here */}
           <section className="prose prose-neutral prose-lg max-w-none">
             <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">
-              Still Ongoing
+              What Came Next
             </h2>
             <p>
-              Echo is technically a finished project, but it does not feel finished to me. It is the kind of
-              product I keep coming back to in my head. I want to rebuild it with everything I know now,
-              make the experience smoother, and eventually learn how to market it and grow it beyond my own
-              circle.
+              Echo taught me everything I needed to know about what not to do. I could not get distribution,
+              and worse, I did not even build something I loved. So I took a step back, asked myself what
+              went wrong, and rebuilt the whole thing from scratch.
             </p>
             <p>
-              Design is the area where I am pushing myself the most. I am spending more time studying
-              interfaces, writing, and storytelling so that Echo feels less like a prototype and more like a
-              tool you would recommend to a friend.
-            </p>
-            <p>
-              If you are working on voice, language learning, or just enjoy talking about how people learn,
-              I would love to chat.
+              The result is{" "}
+              <Link
+                href="/projects/orphi"
+                className="text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors"
+              >
+                Orphi
+              </Link>
+              {" "} — Echo reborn with personality, proactive engagement, and a voice-first experience I
+              actually want to use myself every day.
             </p>
           </section>
         </main>

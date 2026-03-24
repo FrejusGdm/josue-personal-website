@@ -1,6 +1,17 @@
 export const projects = [
   {
     year: "2026",
+    title: "Orphi",
+    tagline: "Speak your way to fluency",
+    description:
+      "Echo reborn. An AI language companion that feels like a friend — witty, proactive, and voice-first. Built from scratch with everything I learned from Echo's 100+ users.",
+    href: "/projects/orphi",
+    tags: ["AI", "Voice", "EdTech", "iOS"],
+    status: "Active",
+    image: "/orphi/orphi-project-prez.png",
+  },
+  {
+    year: "2026",
     title: "WhoDoYouKnow",
     tagline: "Discover your real network from Gmail",
     description:

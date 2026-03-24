@@ -15,14 +15,20 @@ export default function ProjectsPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let bestIndex = -1;
+        let bestRatio = 0;
         for (const entry of entries) {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
             const index = cardRefs.current.indexOf(entry.target as HTMLAnchorElement);
-            if (index !== -1) setVisibleIndex(index);
+            if (index !== -1) {
+              bestIndex = index;
+              bestRatio = entry.intersectionRatio;
+            }
           }
         }
+        if (bestIndex !== -1) setVisibleIndex(bestIndex);
       },
-      { threshold: 0.5 }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
 
     for (const ref of cardRefs.current) {
