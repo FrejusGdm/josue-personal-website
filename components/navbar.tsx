@@ -2,13 +2,26 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, useScroll } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
+import { Menu, X, Check } from "lucide-react";
+
+const EMAIL = "josue@useecho.ai";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const { scrollY } = useScroll();
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email", err);
+    }
+  };
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -59,12 +72,19 @@ export default function Navbar() {
             ))}
 
             {/* CTA Button */}
-            <Link
-              href="mailto:your.email@example.com"
-              className="ml-4 px-5 py-2 text-sm font-sans bg-primary text-primary-foreground rounded-lg hover:bg-neutral-800 transition-all duration-200 hover:scale-105"
+            <button
+              onClick={handleCopyEmail}
+              className="ml-4 px-5 py-2 text-sm font-sans bg-primary text-primary-foreground rounded-lg hover:bg-neutral-800 transition-all duration-200 hover:scale-105 min-w-[120px]"
             >
-              Get in Touch
-            </Link>
+              {copied ? (
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5" />
+                  Copied!
+                </span>
+              ) : (
+                "Get in Touch"
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,15 +123,38 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="mailto:your.email@example.com"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-4 py-3 text-center text-base font-sans bg-primary text-primary-foreground rounded-lg hover:bg-neutral-800 transition-colors"
+          <button
+            onClick={() => {
+              handleCopyEmail();
+              setIsMobileMenuOpen(false);
+            }}
+            className="w-full px-4 py-3 text-center text-base font-sans bg-primary text-primary-foreground rounded-lg hover:bg-neutral-800 transition-colors"
           >
-            Get in Touch
-          </Link>
+            {copied ? (
+              <span className="inline-flex items-center justify-center gap-1.5">
+                <Check className="w-4 h-4" />
+                Copied!
+              </span>
+            ) : (
+              "Get in Touch"
+            )}
+          </button>
         </div>
       </motion.div>
+      {/* Copied Toast */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-20 left-1/2 -translate-x-1/2 bg-neutral-900 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 z-50 pointer-events-none"
+          >
+            <Check className="w-4 h-4 text-green-400" />
+            Email copied to clipboard
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

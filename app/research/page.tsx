@@ -33,14 +33,14 @@ export default function ResearchPage() {
             <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
               <a 
                 href="mailto:josue.c.godeme.25@dartmouth.edu" 
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1 text-foreground border-b border-neutral-300 hover:border-foreground transition-colors"
               >
                 [Email]
               </a>
               <a 
                 href="/resume.pdf" 
                 target="_blank"
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1 text-foreground border-b border-neutral-300 hover:border-foreground transition-colors"
               >
                 [CV]
               </a>
@@ -48,7 +48,7 @@ export default function ResearchPage() {
                 href="https://scholar.google.com/citations?user=Se77iHUAAAAJ&hl=en&oi=ao"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+                className="inline-flex items-center gap-1 text-foreground border-b border-neutral-300 hover:border-foreground transition-colors"
               >
                 [Google Scholar]
               </a>
@@ -83,7 +83,7 @@ export default function ResearchPage() {
                     href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Se77iHUAAAAJ&citation_for_view=Se77iHUAAAAJ:u5HHmVD_uO8C"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-blue-600 hover:underline"
+                    className="font-medium text-foreground border-b border-neutral-300 hover:border-foreground transition-colors"
                   >
                     Artificial Allies: Validation of Synthetic Text for Peer Support Tools through Data Augmentation in NLP Model Development
                   </a>.
