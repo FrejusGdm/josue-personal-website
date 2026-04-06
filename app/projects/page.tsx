@@ -115,9 +115,9 @@ export default function ProjectsPage() {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="absolute inset-0 w-full h-full flex items-center justify-center bg-neutral-50"
                   >
-                    {activeProject.video ? (
+                    {"video" in activeProject && activeProject.video ? (
                       <video
-                        src={activeProject.video}
+                        src={activeProject.video as string}
                         autoPlay
                         loop
                         muted
