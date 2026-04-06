@@ -82,7 +82,7 @@ export const projects = [
     tagline: "Adja NMT System",
     description:
       "Multi year research effort to build a 10,000+ sentence French Adja corpus and a neural machine translation system using transfer learning and few shot techniques.",
-    href: "#",
+    href: "/projects/stamps",
     tags: ["NLP", "Deep Learning", "Research", "Low-Resource Languages"],
     status: "Ongoing",
     image: "/logos/stamps.png",

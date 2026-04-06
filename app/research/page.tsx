@@ -25,9 +25,9 @@ export default function ResearchPage() {
           <div className="mb-12">
             <h1 className="font-display text-4xl md:text-5xl text-neutral-900 mb-2 tracking-tight">Josué Godeme</h1>
             <div className="font-sans text-neutral-600 mb-4 text-sm leading-relaxed">
-              <strong>Computer Science Student.</strong><br/>
-              Dartmouth College<br/>
-              King Scholar & Stamps Scholar
+              <strong>Computer Science.</strong> Dartmouth College<br/>
+              King Scholar & Stamps Scholar<br/>
+              Incoming Schwarzman Scholar, Tsinghua University (2027)
             </div>
             
             <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
@@ -59,7 +59,10 @@ export default function ResearchPage() {
             {/* Bio & Focus */}
             <section className="prose prose-neutral prose-lg max-w-none font-sans text-neutral-800 leading-relaxed">
               <p>
-                My research aims to build and improve language technologies for low-resource languages. I study methods that combine deep learning models with transfer learning techniques to bridge the gap between underrepresented languages and modern AI capabilities. I am particularly interested in applications in neural machine translation, edge computing for education, and evaluating LLM performance on West African languages.
+                I research and build at the intersection of multilingual AI, voice technologies, and education. My work spans evaluating LLM performance across languages, deploying models on edge devices for low-connectivity classrooms, and designing voice-first learning systems. I also ship products — most recently <a href="/projects/orphi" className="text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors">Orphi</a>, an AI language companion live on the App Store.
+              </p>
+              <p>
+                Growing up between Adja, French, and English — and now learning Mandarin — shaped how I think about language technology. Most AI systems are built for a handful of languages and fail everyone else. I am interested in changing that: not just through linguistics research, but by building the infrastructure and evaluation frameworks that make multilingual AI actually work at scale.
               </p>
             </section>
 
@@ -67,10 +70,10 @@ export default function ResearchPage() {
             <section>
               <h2 className="font-display text-2xl text-neutral-900 mb-4">Current Research Areas</h2>
               <ul className="list-disc list-inside space-y-2 font-sans text-neutral-800 ml-4">
-                <li>Neural Machine Translation for low-resource languages (specifically Adja-French).</li>
-                <li>Few-shot and transfer learning approaches in NLP.</li>
-                <li>Edge computing and running AI models on constrained devices for educational use.</li>
-                <li>Evaluating and adapting Large Language Models for West African languages.</li>
+                <li>Multilingual NLP and LLM evaluation across languages.</li>
+                <li>Edge-deployed AI for low-connectivity educational contexts.</li>
+                <li>Voice AI and speech technologies.</li>
+                <li>AI infrastructure for underrepresented languages.</li>
               </ul>
             </section>
 
