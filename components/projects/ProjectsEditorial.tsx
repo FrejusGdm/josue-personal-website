@@ -12,7 +12,7 @@ export default function ProjectsEditorial() {
   }
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] text-[#1a1612] px-6 md:px-12 py-24 md:py-32">
+    <div className="min-h-screen bg-white text-[#1a1612] px-6 md:px-12 py-24 md:py-32">
       <div className="max-w-[680px] mx-auto">
         <Link
           href="/"

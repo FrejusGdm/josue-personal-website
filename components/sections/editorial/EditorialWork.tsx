@@ -12,7 +12,7 @@ export default function EditorialWork() {
   return (
     <section
       id="work"
-      className="w-full bg-[#faf7f2] text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15"
+      className="w-full bg-white text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15"
     >
       <div className="max-w-[680px] mx-auto">
         <p

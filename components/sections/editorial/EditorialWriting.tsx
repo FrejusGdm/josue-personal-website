@@ -8,7 +8,7 @@ interface Props { essays: EssayMeta[]; }
 export default function EditorialWriting({ essays }: Props) {
   if (essays.length === 0) return null;
   return (
-    <section className="w-full bg-[#faf7f2] text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15">
+    <section className="w-full bg-white text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15">
       <div className="max-w-[680px] mx-auto">
         <p
           className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-8"

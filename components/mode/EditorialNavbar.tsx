@@ -47,7 +47,7 @@ export default function EditorialNavbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#faf7f2]/85 backdrop-blur-xl border-b border-[#1a1612]/10"
+          ? "bg-white/85 backdrop-blur-xl border-b border-[#1a1612]/10"
           : "bg-transparent"
       }`}
     >
@@ -76,7 +76,7 @@ export default function EditorialNavbar() {
 
             <button
               onClick={handleCopyEmail}
-              className="ml-4 px-4 py-2 text-xs uppercase tracking-[0.15em] border border-[#1a1612]/30 text-[#1a1612] hover:bg-[#1a1612] hover:text-[#faf7f2] transition-colors min-w-[120px]"
+              className="ml-4 px-5 py-2 rounded-full text-xs uppercase tracking-[0.15em] border border-[#1a1612]/30 text-[#1a1612] hover:bg-[#1a1612] hover:text-white transition-colors min-w-[130px]"
               style={META_STYLE}
             >
               {copied ? (
@@ -107,7 +107,7 @@ export default function EditorialNavbar() {
           opacity: isMobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="md:hidden overflow-hidden bg-[#faf7f2]/95 backdrop-blur-xl border-b border-[#1a1612]/10"
+        className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-[#1a1612]/10"
       >
         <div className="px-6 py-4 space-y-1">
           {navLinks.map((link) => (
@@ -126,7 +126,7 @@ export default function EditorialNavbar() {
               handleCopyEmail();
               setIsMobileMenuOpen(false);
             }}
-            className="w-full mt-2 px-4 py-3 text-xs uppercase tracking-[0.15em] border border-[#1a1612]/30 text-[#1a1612]"
+            className="w-full mt-2 px-4 py-3 rounded-full text-xs uppercase tracking-[0.15em] border border-[#1a1612]/30 text-[#1a1612]"
             style={META_STYLE}
           >
             {copied ? (
@@ -147,7 +147,7 @@ export default function EditorialNavbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 bg-[#1a1612] text-[#faf7f2] px-4 py-2 text-sm shadow-lg flex items-center gap-2 z-50 pointer-events-none"
+            className="fixed top-20 left-1/2 -translate-x-1/2 bg-[#1a1612] text-white px-4 py-2 rounded-full text-sm shadow-lg flex items-center gap-2 z-50 pointer-events-none"
             style={META_STYLE}
           >
             <Check className="w-4 h-4 text-[#d4c296]" />

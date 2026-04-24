@@ -5,7 +5,7 @@ import { hero } from "@/content/home";
 
 export default function EditorialHero() {
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center bg-[#faf7f2] text-[#1a1612] px-6 md:px-12">
+    <section className="relative w-full min-h-[90vh] flex items-center bg-white text-[#1a1612] px-6 md:px-12">
       <div className="max-w-[680px] mx-auto w-full py-24 md:py-32">
         <motion.p
           initial={{ opacity: 0 }}

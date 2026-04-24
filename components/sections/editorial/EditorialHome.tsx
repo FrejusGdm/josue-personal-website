@@ -11,7 +11,7 @@ interface Props { essays: EssayMeta[]; }
 
 export default function EditorialHome({ essays }: Props) {
   return (
-    <div className="bg-[#faf7f2] text-[#1a1612]">
+    <div className="bg-white text-[#1a1612]">
       <EditorialHero />
       <EditorialBio />
       <EditorialWork />
