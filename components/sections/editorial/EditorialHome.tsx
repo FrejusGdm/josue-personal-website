@@ -18,10 +18,10 @@ export default function EditorialHome({ essays }: Props) {
       <EditorialHonors />
       <EditorialWriting essays={essays} />
       <footer
-        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center"
+        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center italic"
         style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
       >
-        Set in Instrument Serif &amp; Source Serif 4. Built with Next.js. — Josué.
+        Built with love by Josué.
       </footer>
     </div>
   );

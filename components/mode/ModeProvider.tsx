@@ -2,7 +2,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from "react";
 
-export type Mode = "current" | "editorial" | "agency";
+export type Mode = "current" | "editorial";
 
 interface ModeContextValue {
   mode: Mode;
@@ -15,7 +15,7 @@ export const ModeContext = createContext<ModeContextValue>({
 });
 
 const STORAGE_KEY = "josue-site-mode";
-const VALID_MODES: Mode[] = ["current", "editorial", "agency"];
+const VALID_MODES: Mode[] = ["current", "editorial"];
 
 export function ModeProvider({ children }: { children: ReactNode }) {
   const [mode, setModeState] = useState<Mode>("current");

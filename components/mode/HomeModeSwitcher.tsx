@@ -13,10 +13,6 @@ const EditorialHome = dynamic(
   () => import("@/components/sections/editorial/EditorialHome"),
   { ssr: false, loading: () => <ModePlaceholder label="Editorial" /> }
 );
-const AgencyHome = dynamic(
-  () => import("@/components/sections/agency/AgencyHome"),
-  { ssr: false, loading: () => <ModePlaceholder label="Agency" /> }
-);
 
 function ModePlaceholder({ label }: { label: string }) {
   return (
@@ -33,7 +29,6 @@ interface Props {
 export function HomeModeSwitcher({ essays }: Props) {
   const { mode } = useMode();
   if (mode === "editorial") return <EditorialHome essays={essays} />;
-  if (mode === "agency") return <AgencyHome essays={essays} />;
   return (
     <>
       <ModernHero />

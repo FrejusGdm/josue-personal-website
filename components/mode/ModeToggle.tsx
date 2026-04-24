@@ -8,7 +8,6 @@ import type { Mode } from "./ModeProvider";
 const OPTIONS: { key: Mode; label: string; shortcut: string }[] = [
   { key: "current", label: "Current", shortcut: "1" },
   { key: "editorial", label: "Editorial", shortcut: "2" },
-  { key: "agency", label: "Agency", shortcut: "3" },
 ];
 
 export function ModeToggle() {
