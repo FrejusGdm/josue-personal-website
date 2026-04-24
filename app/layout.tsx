@@ -6,7 +6,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ModeProvider } from "@/components/mode/ModeProvider";
 import { ModeToggle } from "@/components/mode/ModeToggle";
-import { ChromeVisibility } from "@/components/mode/ChromeVisibility";
+import { ChromeVisibility, EditorialOnly } from "@/components/mode/ChromeVisibility";
+import EditorialNavbar from "@/components/mode/EditorialNavbar";
 
 // Inter Font (Body Text)
 const inter = Inter({
@@ -92,6 +93,9 @@ export default function RootLayout({
           <ChromeVisibility>
             <Navbar />
           </ChromeVisibility>
+          <EditorialOnly>
+            <EditorialNavbar />
+          </EditorialOnly>
           <main className="min-h-screen pt-16">{children}</main>
           <ChromeVisibility>
             <Footer />
