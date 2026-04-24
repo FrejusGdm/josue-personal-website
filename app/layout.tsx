@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ModeProvider } from "@/components/mode/ModeProvider";
+import { ModeToggle } from "@/components/mode/ModeToggle";
 
 // Inter Font (Body Text)
 const inter = Inter({
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Navbar />
           <main className="min-h-screen pt-16">{children}</main>
           <Footer />
+          <ModeToggle />
         </ModeProvider>
       </body>
     </html>
