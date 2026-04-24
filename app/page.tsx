@@ -1,17 +1,11 @@
-import ModernHero from "@/components/heroes/ModernHero";
-import DeepBio from "@/components/sections/DeepBio";
-import HonorsAndInvolvement from "@/components/sections/HonorsAndInvolvement";
-import FeaturedWork from "@/components/sections/FeaturedWork";
-import SelectedWriting from "@/components/sections/SelectedWriting";
+import { getAllEssays } from "@/lib/essays";
+import { HomeModeSwitcher } from "@/components/mode/HomeModeSwitcher";
 
-export default function Home() {
+export default async function Home() {
+  const essays = await getAllEssays();
   return (
-    <main className="w-full">
-      <ModernHero />
-      <DeepBio />
-      <HonorsAndInvolvement />
-      <FeaturedWork />
-      <SelectedWriting />
+    <main className="w-full pb-32">
+      <HomeModeSwitcher essays={essays} />
     </main>
   );
 }
