@@ -7,6 +7,7 @@ import HonorsAndInvolvement from "@/components/sections/HonorsAndInvolvement";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import { useMode } from "./useMode";
 import type { EssayMeta } from "@/lib/mdx";
+import { essayHref } from "@/lib/essay-link";
 import Link from "next/link";
 
 const EditorialHome = dynamic(
@@ -52,12 +53,9 @@ function SelectedWritingClientList({ essays }: { essays: EssayMeta[] }) {
           </Link>
         </div>
         <div className="space-y-2">
-          {recent.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/writing/${post.slug}`}
-              className="group block p-6 -mx-6 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300"
-            >
+          {recent.map((post) => {
+            const { href, external } = essayHref(post);
+            const inner = (
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-4">
                 <h3 className="font-display text-xl md:text-2xl group-hover:text-accent-cyan-dark transition-colors">
                   {post.title}
@@ -70,8 +68,25 @@ function SelectedWritingClientList({ essays }: { essays: EssayMeta[] }) {
                   <span>{post.readTime}</span>
                 </div>
               </div>
-            </Link>
-          ))}
+            );
+            const className =
+              "group block p-6 -mx-6 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300";
+            return external ? (
+              <a
+                key={post.slug}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {inner}
+              </a>
+            ) : (
+              <Link key={post.slug} href={href} className={className}>
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

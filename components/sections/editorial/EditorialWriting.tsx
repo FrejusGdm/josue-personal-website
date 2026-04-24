@@ -2,6 +2,7 @@
 
 import type { EssayMeta } from "@/lib/mdx";
 import Link from "next/link";
+import { essayHref } from "@/lib/essay-link";
 
 interface Props { essays: EssayMeta[]; }
 
@@ -20,12 +21,10 @@ export default function EditorialWriting({ essays }: Props) {
           className="divide-y divide-[#1a1612]/10"
           style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
         >
-          {essays.slice(0, 5).map((e) => (
-            <li key={e.slug} className="py-5">
-              <Link
-                href={`/writing/${e.slug}`}
-                className="grid grid-cols-[auto_1fr_auto] gap-6 items-baseline group"
-              >
+          {essays.slice(0, 5).map((e) => {
+            const { href, external } = essayHref(e);
+            const inner = (
+              <div className="grid grid-cols-[auto_1fr_auto] gap-6 items-baseline group">
                 <span
                   className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a]"
                   style={{ fontFamily: "var(--font-inter), sans-serif" }}
@@ -41,9 +40,27 @@ export default function EditorialWriting({ essays }: Props) {
                 >
                   {e.readTime}
                 </span>
-              </Link>
-            </li>
-          ))}
+              </div>
+            );
+            return (
+              <li key={e.slug} className="py-5">
+                {external ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <Link href={href} className="block">
+                    {inner}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
         <Link
           href="/writing"
