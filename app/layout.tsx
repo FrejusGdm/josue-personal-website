@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ModeProvider } from "@/components/mode/ModeProvider";
 import { ModeToggle } from "@/components/mode/ModeToggle";
+import { ChromeVisibility } from "@/components/mode/ChromeVisibility";
 
 // Inter Font (Body Text)
 const inter = Inter({
@@ -88,9 +89,13 @@ export default function RootLayout({
         className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} ${instrumentSerif.variable} ${sourceSerif.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ModeProvider>
-          <Navbar />
+          <ChromeVisibility>
+            <Navbar />
+          </ChromeVisibility>
           <main className="min-h-screen pt-16">{children}</main>
-          <Footer />
+          <ChromeVisibility>
+            <Footer />
+          </ChromeVisibility>
           <ModeToggle />
         </ModeProvider>
       </body>
