@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter, Instrument_Serif, Source_Serif_4 } from "next/font/google";
+import { Inter, Instrument_Serif, Source_Serif_4, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -25,6 +25,19 @@ const instrumentSerif = Instrument_Serif({
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-source-serif",
+  display: "swap",
+});
+
+// Agency-mode fonts
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -72,7 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} ${instrumentSerif.variable} ${sourceSerif.variable} antialiased`}
+        className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} ${instrumentSerif.variable} ${sourceSerif.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ModeProvider>
           <Navbar />

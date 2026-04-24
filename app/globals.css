@@ -12,6 +12,8 @@
   --font-light: var(--font-editorial-ultralight);
   --font-instrument: var(--font-instrument-serif);
   --font-source-serif: var(--font-source-serif);
+  --font-geist: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
   --fontFamily-light: var(--font-editorial-ultralight);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -189,6 +191,19 @@
     float: left;
     padding: 0.1em 0.1em 0 0;
     color: #1a1612;
+  }
+
+  .agency-grain {
+    position: relative;
+  }
+  .agency-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    pointer-events: none;
+    mix-blend-mode: overlay;
   }
   
   .gradient-mesh {
