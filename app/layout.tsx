@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ModeProvider } from "@/components/mode/ModeProvider";
 
 // Inter Font (Body Text)
 const inter = Inter({
@@ -58,9 +59,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} antialiased`}
       >
-        <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
-        <Footer />
+        <ModeProvider>
+          <Navbar />
+          <main className="min-h-screen pt-16">{children}</main>
+          <Footer />
+        </ModeProvider>
       </body>
     </html>
   );
