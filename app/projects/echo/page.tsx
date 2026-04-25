@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const homeScreen = {
   src: "/echo-project/old-homepage.png",
@@ -38,7 +39,7 @@ const onboardingScreens = [
 
 export default function EchoPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -296,7 +297,7 @@ export default function EchoPage() {
           </section>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }
 

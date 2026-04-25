@@ -193,6 +193,58 @@
     color: #1a1612;
   }
 
+  /* Editorial-mode override scope for project pages.
+     Wrap a project page with `editorial-project-page` to swap typography,
+     accent colors, and screenshot-frame chrome to the editorial palette
+     without touching the page's markup. */
+  .editorial-project-page {
+    background: #fff;
+    color: #1a1612;
+  }
+  .editorial-project-page .font-display {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  /* Section labels stay sans (Inter) but shift to the editorial accent */
+  .editorial-project-page .uppercase.tracking-widest {
+    color: #5a3a1a;
+    font-family: var(--font-inter), sans-serif;
+  }
+  /* Long-form prose body switches to Source Serif */
+  .editorial-project-page .prose {
+    font-family: var(--font-source-serif), Georgia, serif;
+  }
+  .editorial-project-page .prose p,
+  .editorial-project-page .prose li {
+    color: rgba(26, 22, 18, 0.88);
+  }
+  .editorial-project-page .prose a {
+    color: #1a1612;
+    text-decoration: underline;
+    text-decoration-color: rgba(90, 58, 26, 0.6);
+    text-underline-offset: 4px;
+  }
+  .editorial-project-page .prose a:hover {
+    text-decoration-color: #5a3a1a;
+  }
+  /* Foreground neutral shifts */
+  .editorial-project-page .text-neutral-900 { color: #1a1612; }
+  .editorial-project-page .text-neutral-800 { color: rgba(26, 22, 18, 0.9); }
+  .editorial-project-page .text-neutral-600 { color: rgba(26, 22, 18, 0.7); }
+  .editorial-project-page .text-neutral-500 { color: rgba(26, 22, 18, 0.55); }
+  .editorial-project-page .text-neutral-400 { color: rgba(26, 22, 18, 0.5); }
+  /* Screenshot frames warm up to match editorial paper */
+  .editorial-project-page .bg-neutral-50 { background-color: rgba(26, 22, 18, 0.04); }
+  .editorial-project-page .border-neutral-100 { border-color: rgba(26, 22, 18, 0.1); }
+  .editorial-project-page .border-neutral-200 { border-color: rgba(26, 22, 18, 0.15); }
+  /* Hover shifts on chrome links land on the warm accent */
+  .editorial-project-page .hover\:text-neutral-900:hover,
+  .editorial-project-page .hover\:text-neutral-600:hover {
+    color: #5a3a1a;
+  }
+
   .agency-grain {
     position: relative;
   }
