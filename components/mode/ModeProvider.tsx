@@ -18,7 +18,7 @@ const STORAGE_KEY = "josue-site-mode";
 const VALID_MODES: Mode[] = ["current", "editorial"];
 
 export function ModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setModeState] = useState<Mode>("current");
+  const [mode, setModeState] = useState<Mode>("editorial");
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <ModeContext.Provider value={{ mode: hydrated ? mode : "current", setMode }}>
+    <ModeContext.Provider value={{ mode: hydrated ? mode : "editorial", setMode }}>
       {children}
     </ModeContext.Provider>
   );
