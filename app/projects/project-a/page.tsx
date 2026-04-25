@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 export default function ProjectAPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <ProjectEditorialFrame className="min-h-screen bg-white">
       {/* Back Navigation */}
       <div className="border-b border-neutral-200">
         <div className="max-w-4xl mx-auto px-6 md:px-8 py-6">
@@ -206,6 +207,6 @@ export default function ProjectAPage() {
           </motion.p>
         </div>
       </section>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

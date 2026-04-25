@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const techStack = [
   {
@@ -36,7 +37,7 @@ const teamMembers = [
 
 export default function NexusPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -334,6 +335,6 @@ export default function NexusPage() {
           </footer>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

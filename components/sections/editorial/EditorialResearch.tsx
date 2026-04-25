@@ -163,24 +163,33 @@ export default function EditorialResearch() {
                 Works in Progress
               </h2>
               <div className="space-y-8">
-                {worksInProgress.map((pub) => (
-                  <div
-                    key={pub.title}
-                    className="text-base leading-[1.65] text-[#1a1612]/90"
+                {worksInProgress.length === 0 ? (
+                  <p
+                    className="italic text-lg text-[#1a1612]/55"
                     style={BODY_STYLE}
                   >
-                    <span className="italic">{pub.title}</span>.
-                    <br />
-                    {pub.authors}
-                    <br />
-                    <span
-                      className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a]"
-                      style={META_STYLE}
+                    To be added.
+                  </p>
+                ) : (
+                  worksInProgress.map((pub) => (
+                    <div
+                      key={pub.title}
+                      className="text-base leading-[1.65] text-[#1a1612]/90"
+                      style={BODY_STYLE}
                     >
-                      {pub.status}
-                    </span>
-                  </div>
-                ))}
+                      <span className="italic">{pub.title}</span>.
+                      <br />
+                      {pub.authors}
+                      <br />
+                      <span
+                        className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a]"
+                        style={META_STYLE}
+                      >
+                        {pub.status}
+                      </span>
+                    </div>
+                  ))
+                )}
               </div>
             </section>
 

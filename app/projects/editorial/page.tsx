@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const projects = [
   {
@@ -44,7 +45,7 @@ const projects = [
 
 export default function EditorialStream() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-2xl mx-auto px-6 py-20">
         
         <Link
@@ -105,7 +106,7 @@ export default function EditorialStream() {
         </div>
 
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }
 

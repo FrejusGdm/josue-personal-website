@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar } from "lucide-react";
 import InstitutionBadge from "@/components/ui/InstitutionBadge";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const achievements = [
   {
@@ -42,7 +43,7 @@ const learnings = [
 
 export default function DavisPeaceProjectPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -307,6 +308,6 @@ export default function DavisPeaceProjectPage() {
           </footer>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

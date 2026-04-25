@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import InstitutionBadge from "@/components/ui/InstitutionBadge";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const features = [
   {
@@ -48,7 +49,7 @@ const lessons = [
 
 export default function CalendaiPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -238,6 +239,6 @@ export default function CalendaiPage() {
           </footer>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

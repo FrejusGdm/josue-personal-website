@@ -40,6 +40,8 @@ export default function EditorialNavbar() {
     { name: "Gallery", href: "/gallery" },
   ];
 
+  const RESUME_HREF = "/resume/josue-dartmouth-v2.pdf";
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -73,6 +75,15 @@ export default function EditorialNavbar() {
                 {link.name}
               </Link>
             ))}
+            <a
+              href={RESUME_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2 text-sm italic text-[#1a1612]/70 hover:text-[#5a3a1a] transition-colors"
+              style={BODY_STYLE}
+            >
+              CV
+            </a>
 
             <button
               onClick={handleCopyEmail}
@@ -121,6 +132,16 @@ export default function EditorialNavbar() {
               {link.name}
             </Link>
           ))}
+          <a
+            href={RESUME_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block px-3 py-3 text-base italic text-[#1a1612]/80 hover:text-[#5a3a1a]"
+            style={BODY_STYLE}
+          >
+            CV
+          </a>
           <button
             onClick={() => {
               handleCopyEmail();

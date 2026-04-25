@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const screens = [
   { src: "/orphi/02-home-voice-chat.png", label: "Home — voice chat" },
@@ -43,7 +44,7 @@ const features = [
 
 export default function OrphiPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -278,6 +279,6 @@ export default function OrphiPage() {
           </section>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

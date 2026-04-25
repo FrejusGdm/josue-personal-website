@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
+import ProjectEditorialFrame from "@/components/sections/editorial/ProjectEditorialFrame";
 
 const heroMedia = {
   video: "/who-do-you-know/demo-whoYouKnow.mp4",
@@ -13,7 +14,7 @@ const heroMedia = {
 
 export default function WhoDoYouKnowPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-neutral-100">
+    <ProjectEditorialFrame className="min-h-screen bg-white selection:bg-neutral-100">
       <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* Navigation */}
         <Link
@@ -121,6 +122,6 @@ export default function WhoDoYouKnowPage() {
           </section>
         </main>
       </div>
-    </div>
+    </ProjectEditorialFrame>
   );
 }

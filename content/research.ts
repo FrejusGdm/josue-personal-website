@@ -13,7 +13,7 @@ export const researchHeader = {
     },
     {
       label: "CV",
-      href: "/resume.pdf",
+      href: "/resume/josue-dartmouth-v2.pdf",
       external: true,
     },
     {
@@ -53,6 +53,12 @@ export interface Publication {
 export const publications: Publication[] = [
   {
     title:
+      "Adja-French Parallel Corpus: A New Resource for Machine Translation of a West African Under-Resourced Language",
+    authors: "Godeme, J. et al. (2025).",
+    venue: "LREC 2026.",
+  },
+  {
+    title:
       "Artificial Allies: Validation of Synthetic Text for Peer Support Tools through Data Augmentation in NLP Model Development",
     href: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Se77iHUAAAAJ&citation_for_view=Se77iHUAAAAJ:u5HHmVD_uO8C",
     authors:
@@ -61,20 +67,7 @@ export const publications: Publication[] = [
   },
 ];
 
-export const worksInProgress: Publication[] = [
-  {
-    title: "Adja-French Neural Machine Translation: A Few-Shot Transfer Learning Approach",
-    authors: "Godeme, J. et al.",
-    venue: "",
-    status: "Under Review.",
-  },
-  {
-    title: "Evaluating LLM Performance on Low-Resource West African Languages",
-    authors: "Godeme, J.",
-    venue: "",
-    status: "In Preparation.",
-  },
-];
+export const worksInProgress: Publication[] = [];
 
 export interface Talk {
   venue: string;
@@ -87,10 +80,5 @@ export const talks: Talk[] = [
     venue: "Pacific Symposium on Biocomputing",
     location: "Hawaii, USA",
     date: "Jan 2025",
-  },
-  {
-    venue: "Stamps Scholars National Convention",
-    location: "Atlanta, GA",
-    date: "Aug 2024",
   },
 ];

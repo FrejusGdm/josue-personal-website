@@ -116,15 +116,19 @@ export default function CurrentResearch() {
             <section>
               <h2 className="font-display text-2xl text-neutral-900 mb-6">Works in Progress</h2>
               <div className="space-y-6">
-                {worksInProgress.map((pub) => (
-                  <div key={pub.title} className="font-sans text-neutral-800 text-sm md:text-base">
-                    <span className="font-medium text-neutral-900">{pub.title}</span>.
-                    <br />
-                    {pub.authors}
-                    <br />
-                    <span className="italic text-neutral-600">{pub.status}</span>
-                  </div>
-                ))}
+                {worksInProgress.length === 0 ? (
+                  <p className="font-sans italic text-neutral-500">To be added.</p>
+                ) : (
+                  worksInProgress.map((pub) => (
+                    <div key={pub.title} className="font-sans text-neutral-800 text-sm md:text-base">
+                      <span className="font-medium text-neutral-900">{pub.title}</span>.
+                      <br />
+                      {pub.authors}
+                      <br />
+                      <span className="italic text-neutral-600">{pub.status}</span>
+                    </div>
+                  ))
+                )}
               </div>
             </section>
 
