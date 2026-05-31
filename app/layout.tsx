@@ -100,7 +100,7 @@ export default function RootLayout({
           <ChromeVisibility>
             <Footer />
           </ChromeVisibility>
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </ModeProvider>
       </body>
     </html>
