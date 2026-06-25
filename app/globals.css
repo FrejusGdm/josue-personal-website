@@ -183,16 +183,6 @@
     text-wrap: balance;
   }
 
-  .editorial-dropcap::first-letter {
-    font-family: var(--font-instrument-serif), Georgia, serif;
-    font-style: italic;
-    font-size: 4.5em;
-    line-height: 0.9;
-    float: left;
-    padding: 0.1em 0.1em 0 0;
-    color: #1a1612;
-  }
-
   /* Editorial-mode override scope for project pages.
      Wrap a project page with `editorial-project-page` to swap typography,
      accent colors, and screenshot-frame chrome to the editorial palette

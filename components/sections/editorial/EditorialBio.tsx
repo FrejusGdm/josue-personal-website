@@ -3,11 +3,15 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SmartLink from "@/components/ui/SmartLink";
+import { bio } from "@/content/home";
 
 const BODY_STYLE = { fontFamily: "var(--font-source-serif), Georgia, serif" };
 const DISPLAY_STYLE = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 
 export default function EditorialBio() {
+  const nowParagraph = bio.paragraphs[2].text;
+  const nowRest = nowParagraph.replace(/^I built Echo,/, ",");
+
   return (
     <section className="w-full bg-white text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15">
       <motion.div
@@ -27,7 +31,7 @@ export default function EditorialBio() {
           className="text-lg leading-[1.7] space-y-6 text-[#1a1612]/90"
           style={BODY_STYLE}
         >
-          <p className="editorial-dropcap">
+          <p>
             <Image
               src="/josue-headshot/VERT_IMG_5740.png"
               alt="Josué Godeme"
@@ -36,7 +40,12 @@ export default function EditorialBio() {
               className="float-right ml-6 mb-3 w-[140px] md:w-[200px] h-auto grayscale-[0.2]"
               priority
             />
-            I grew up in{" "}
+            <span
+              className="float-left block font-instrument italic text-[4.5em] leading-[0.85] text-[#1a1612] mr-[0.12em] pt-[0.05em] pr-[0.18em] pl-[0.04em]"
+            >
+              I
+            </span>
+            {" grew up in "}
             <SmartLink
               href="https://en.wikipedia.org/wiki/Benin"
               external
@@ -74,19 +83,17 @@ export default function EditorialBio() {
             </SmartLink>
             .
           </p>
-          <p>
-            I believe that technology, when used well and adapted to local contexts, can be powerful in solving problems and improving lives. That&apos;s what I want to do—build products that help people solve problems and improve their lives.
-          </p>
+          <p>{bio.paragraphs[1].text}</p>
           <p>
             I built{" "}
             <SmartLink href="/projects/echo" previewText="My speech-first language learning app.">
               Echo
             </SmartLink>
-            , a speech-focused language learning app where you get an AI tutor to help you practice the language through voice. I&apos;ve built a bunch of other projects during my time at Dartmouth. Currently, I&apos;m obsessed with AI in education and languages. I want to make AI understand the languages of the rest of the world—languages that my parents and millions of others across Asia and Africa speak. But I&apos;m also deeply interested in running AI models on the edge (devices like the Raspberry Pi) and mobile (like the iPhone).
+            {nowRest}
           </p>
         </div>
         <p className="mt-12 italic text-3xl" style={DISPLAY_STYLE}>
-          — Josué.
+          — {bio.signature}
         </p>
       </motion.div>
     </section>

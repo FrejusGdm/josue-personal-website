@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { projects } from "@/app/projects/data";
+import { ProjectLink } from "@/components/projects/ProjectLink";
 
 export default function ProjectsEditorial() {
   const byYear = new Map<string, typeof projects>();
@@ -49,13 +50,13 @@ export default function ProjectsEditorial() {
             >
               {group.map((p) => (
                 <li key={p.title} className="py-4">
-                  <Link href={p.href} className="grid grid-cols-[1fr_auto] gap-6 items-baseline group">
+                  <ProjectLink href={p.href} external={p.external} className="grid grid-cols-[1fr_auto] gap-6 items-baseline group">
                     <span className="text-lg">
                       <span className="italic">{p.title}</span>
                       <span className="text-[#1a1612]/55"> — {p.tagline}</span>
                     </span>
                     <span className="text-[#5a3a1a] group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
+                  </ProjectLink>
                   <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2 max-w-[580px]">{p.description}</p>
                 </li>
               ))}

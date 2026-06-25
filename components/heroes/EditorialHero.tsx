@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { hero } from "@/content/home";
+import { hero, heroEditorialIntro } from "@/content/home";
+import BioInterests from "@/components/sections/BioInterests";
 
 export default function EditorialHero() {
   return (
@@ -20,7 +21,7 @@ export default function EditorialHero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="italic text-6xl md:text-8xl leading-[0.95] tracking-tight mb-12"
+          className="text-6xl md:text-8xl leading-[0.95] tracking-tight mb-12"
           style={{ fontFamily: "var(--font-instrument-serif), Georgia, serif" }}
         >
           {hero.name}.
@@ -32,13 +33,14 @@ export default function EditorialHero() {
           className="text-lg md:text-xl leading-[1.65] text-[#1a1612]/85"
           style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
         >
-          {hero.tagline} I write about building with AI, preserving low-resource languages, and the long road between an idea and something real. This is a record of what I&apos;ve been making, reading, and thinking about.
+          {hero.tagline} {heroEditorialIntro}
         </motion.p>
+        <BioInterests variant="editorial" embedded />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-16 flex flex-wrap items-center gap-x-5 gap-y-3"
+          className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-3"
         >
           <span
             className="text-sm text-[#1a1612]/40 italic"

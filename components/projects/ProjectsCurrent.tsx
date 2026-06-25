@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/app/projects/data";
+import { ProjectLink } from "@/components/projects/ProjectLink";
 
 export default function ProjectsCurrent() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -68,9 +69,10 @@ export default function ProjectsCurrent() {
           <div className="flex flex-col lg:flex-row gap-16 xl:gap-24 relative">
             <div className="w-full lg:w-1/2 flex flex-col border-t border-neutral-200">
               {projects.map((project, index) => (
-                <Link
+                <ProjectLink
                   key={project.title}
                   href={project.href}
+                  external={project.external}
                   ref={(el) => { cardRefs.current[index] = el; }}
                   className="group block py-8 md:py-12 border-b border-neutral-200 hover:bg-neutral-50 transition-colors -mx-6 px-6 lg:mx-0 lg:px-4 rounded-xl"
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -98,7 +100,7 @@ export default function ProjectsCurrent() {
                       </span>
                     ))}
                   </div>
-                </Link>
+                </ProjectLink>
               ))}
             </div>
 
@@ -123,13 +125,17 @@ export default function ProjectsCurrent() {
                         className="w-full h-full object-cover"
                         poster={activeProject.image}
                       />
-                    ) : activeProject.image && (
+                    ) : activeProject.image ? (
                       <Image
                         src={activeProject.image}
                         alt={activeProject.title}
                         fill
                         className={activeProject.isLogo ? 'object-contain p-16' : 'object-cover'}
                       />
+                    ) : (
+                      <div className="flex h-full items-center justify-center p-12 text-center">
+                        <p className="font-display text-3xl text-neutral-400">{activeProject.title}</p>
+                      </div>
                     )}
                   </motion.div>
                 </AnimatePresence>

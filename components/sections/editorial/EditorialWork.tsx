@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/app/projects/data";
+import { ProjectLink } from "@/components/projects/ProjectLink";
 
 export default function EditorialWork() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
@@ -32,7 +32,7 @@ export default function EditorialWork() {
               onMouseEnter={() => setHoverIdx(i)}
               onMouseLeave={() => setHoverIdx(null)}
             >
-              <Link href={p.href} className="grid grid-cols-[auto_1fr_auto] gap-6 items-baseline group">
+              <ProjectLink href={p.href} external={p.external} className="grid grid-cols-[auto_1fr_auto] gap-6 items-baseline group">
                 <span
                   className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a] whitespace-nowrap"
                   style={{ fontFamily: "var(--font-inter), sans-serif" }}
@@ -44,7 +44,7 @@ export default function EditorialWork() {
                   <span className="text-[#1a1612]/55"> — {p.tagline}</span>
                 </span>
                 <span className="text-[#5a3a1a] text-lg group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
+              </ProjectLink>
             </li>
           ))}
         </ul>

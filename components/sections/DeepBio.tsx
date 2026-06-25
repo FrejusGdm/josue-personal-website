@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SmartLink from "@/components/ui/SmartLink";
+import { bio } from "@/content/home";
 
 export default function DeepBio() {
+  const nowParagraph = bio.paragraphs[2].text;
+
   return (
     <section className="w-full bg-white border-b border-neutral-100">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -27,7 +30,6 @@ export default function DeepBio() {
                   className="object-cover"
                   priority
                 />
-                {/* Texture overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-neutral-900/5 to-transparent pointer-events-none" />
               </div>
               <p className="mt-4 text-xs font-sans text-neutral-400 text-right"></p>
@@ -46,17 +48,16 @@ export default function DeepBio() {
               <p>
                 I grew up in <SmartLink href="https://en.wikipedia.org/wiki/Benin" external previewText="A nation in West Africa, known as the birthplace of the Vodun religion and home to the Dahomey Amazons." logo="benin.png">Benin</SmartLink>, a country in West Africa. I ranked first in my national high school diploma (baccalauréat) with the 2nd highest score in the history of the exam in my country. This allowed me to attend <SmartLink href="https://dartmouth.edu" external previewText="An Ivy League research university in Hanover, New Hampshire." logo="dartmouth.png">Dartmouth College</SmartLink>, where I now study computer science and minor in Mandarin Chinese. I speak four languages—English, French, Chinese, and Adja. At Dartmouth, I am a <SmartLink href="https://students.dartmouth.edu/fgo/programs/king-scholars" external previewText="Prestigious full-ride scholarship with leadership development for students committed to alleviating poverty." logo="king.png">King Scholar</SmartLink> and a <SmartLink href="https://www.stampsscholars.org/" external previewText="Merit scholarship program supporting leadership, scholarship, and service." logo="stamps.png">Stamps Scholar</SmartLink>.
               </p>
+              <p>{bio.paragraphs[1].text}</p>
               <p>
-                I believe that technology, when used well and adapted to local contexts, can be powerful in solving problems and improving lives. That&apos;s what I want to do—build products that help people solve problems and improve their lives.
-              </p>
-              <p>
-                I built <SmartLink href="/projects/echo" previewText="My speech-first language learning app.">Echo</SmartLink>, a speech-focused language learning app where you get an AI tutor to help you practice the language through voice. I&apos;ve built a bunch of other projects during my time at Dartmouth. Currently, I&apos;m obsessed with AI in education and languages. I want to make AI understand the languages of the rest of the world—languages that my parents and millions of others across Asia and Africa speak. But I&apos;m also deeply interested in running AI models on the edge (devices like the Raspberry Pi) and mobile (like the iPhone). Why? Because it&apos;s amazing that you can package such a vast amount of knowledge in those small LLMs, and I think this is crucial for education, especially in under-resourced areas.
+                I built <SmartLink href="/projects/echo" previewText="My speech-first language learning app.">Echo</SmartLink>
+                {nowParagraph.replace(/^I built Echo,/, ",")}{" "}
+                {bio.nowEdgeClosing}
               </p>
             </div>
 
-            {/* Signature or subtle element */}
             <div className="pt-4">
-               <span className="font-display text-2xl text-neutral-900">Josué.</span>
+               <span className="font-display text-2xl text-neutral-900">{bio.signature}</span>
             </div>
           </motion.div>
 

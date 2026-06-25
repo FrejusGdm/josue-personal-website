@@ -57,7 +57,7 @@ export default function EditorialNavbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="group">
             <span
-              className="italic text-xl tracking-tight text-[#1a1612]"
+              className="text-xl tracking-tight text-[#1a1612]"
               style={DISPLAY_STYLE}
             >
               Josué Godeme

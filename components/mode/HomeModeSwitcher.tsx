@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import ModernHero from "@/components/heroes/ModernHero";
 import DeepBio from "@/components/sections/DeepBio";
+import BioInterests from "@/components/sections/BioInterests";
 import HonorsAndInvolvement from "@/components/sections/HonorsAndInvolvement";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import { useMode } from "./useMode";
@@ -34,6 +35,7 @@ export function HomeModeSwitcher({ essays }: Props) {
     <>
       <ModernHero />
       <DeepBio />
+      <BioInterests variant="current" />
       <HonorsAndInvolvement />
       <FeaturedWork />
       <SelectedWritingClientList essays={essays} />

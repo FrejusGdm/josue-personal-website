@@ -1,4 +1,29 @@
-export const projects = [
+export interface Project {
+  year: string;
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+  tags: string[];
+  status: string;
+  image?: string;
+  external?: boolean;
+  isLogo?: boolean;
+  video?: string;
+}
+
+export const projects: Project[] = [
+  {
+    year: "2026",
+    title: "Akilli",
+    tagline: "An AI-native university",
+    description:
+      "Building voice-first, offline tutoring for students in Sub-Saharan Africa — edge AI on cheap hardware for learners who need it most.",
+    href: "https://akilli.ai",
+    external: true,
+    tags: ["AI", "Edge AI", "EdTech", "Voice"],
+    status: "Active",
+  },
   {
     year: "2026",
     title: "Orphi",
