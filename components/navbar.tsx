@@ -36,7 +36,7 @@ export default function Navbar() {
     { name: "Gallery", href: "/gallery" },
   ];
 
-  const RESUME_HREF = "/resume/josue-dartmouth-v2.pdf";
+  const RESUME_HREF = "/resume/Josue-Godeme-Resume-Engineering.pdf";
 
   return (
     <motion.nav

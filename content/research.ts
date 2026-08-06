@@ -13,7 +13,7 @@ export const researchHeader = {
     },
     {
       label: "CV",
-      href: "/resume/josue-dartmouth-v2.pdf",
+      href: "/resume/Josue-Godeme-Resume-Engineering.pdf",
       external: true,
     },
     {
