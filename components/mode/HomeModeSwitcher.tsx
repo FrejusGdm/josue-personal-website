@@ -10,7 +10,7 @@ import { useMode } from "./useMode";
 import type { EssayMeta } from "@/lib/mdx";
 import { essayHref } from "@/lib/essay-link";
 import Link from "next/link";
-import { EditorialLoader } from "./EditorialLoader";
+import { EditorialLoader, useMinDisplayTime } from "./EditorialLoader";
 
 const EditorialHome = dynamic(
   () => import("@/components/sections/editorial/EditorialHome"),
@@ -23,7 +23,8 @@ interface Props {
 
 export function HomeModeSwitcher({ essays }: Props) {
   const { mode } = useMode();
-  if (mode === "editorial") return <EditorialHome essays={essays} />;
+  const ready = useMinDisplayTime(mode === "editorial");
+  if (mode === "editorial") return ready ? <EditorialHome essays={essays} /> : <EditorialLoader />;
   return (
     <>
       <ModernHero />

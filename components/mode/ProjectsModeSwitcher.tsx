@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import ProjectsCurrent from "@/components/projects/ProjectsCurrent";
 import { useMode } from "./useMode";
-import { EditorialLoader } from "./EditorialLoader";
+import { EditorialLoader, useMinDisplayTime } from "./EditorialLoader";
 
 const ProjectsEditorial = dynamic(
   () => import("@/components/projects/ProjectsEditorial"),
@@ -12,6 +12,7 @@ const ProjectsEditorial = dynamic(
 
 export function ProjectsModeSwitcher() {
   const { mode } = useMode();
-  if (mode === "editorial") return <ProjectsEditorial />;
+  const ready = useMinDisplayTime(mode === "editorial");
+  if (mode === "editorial") return ready ? <ProjectsEditorial /> : <EditorialLoader />;
   return <ProjectsCurrent />;
 }

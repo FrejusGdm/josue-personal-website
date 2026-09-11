@@ -4,6 +4,22 @@ import { useEffect, useState } from "react";
 
 const NAME = "Josué";
 const TYPE_INTERVAL_MS = 90;
+// Minimum time the loader stays on screen so the typing animation always
+// plays to the end, even when the chunk loads instantly from cache.
+const MIN_DISPLAY_MS = 1200;
+
+export function useMinDisplayTime(active = true, ms = MIN_DISPLAY_MS) {
+  const [elapsed, setElapsed] = useState(!active);
+  useEffect(() => {
+    if (!active) {
+      setElapsed(true);
+      return;
+    }
+    const t = setTimeout(() => setElapsed(true), ms);
+    return () => clearTimeout(t);
+  }, [active, ms]);
+  return elapsed;
+}
 
 interface EditorialLoaderProps {
   fullScreen?: boolean;
