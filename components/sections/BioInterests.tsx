@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { interests } from "@/content/interests";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 interface BioInterestsProps {
   variant?: "current" | "editorial";
@@ -10,6 +11,7 @@ interface BioInterestsProps {
 }
 
 export default function BioInterests({ variant = "current", embedded = false }: BioInterestsProps) {
+  const { t } = useLanguage();
   const isEditorial = variant === "editorial";
 
   const pillClass = isEditorial
@@ -20,7 +22,9 @@ export default function BioInterests({ variant = "current", embedded = false }: 
     ? "text-xs uppercase tracking-[0.2em] text-[#5a3a1a] shrink-0"
     : "text-sm font-sans text-neutral-400 shrink-0";
 
-  const pills = interests.items.map((item) => {
+  // Labels come from the active language; hrefs stay with the interest list.
+  const pills = interests.items.map((item, i) => {
+    const label = t.interests.items[i] ?? item.label;
     const className = pillClass;
     if (item.external) {
       return (
@@ -36,7 +40,7 @@ export default function BioInterests({ variant = "current", embedded = false }: 
               : undefined
           }
         >
-          {item.label}
+          {label}
         </a>
       );
     }
@@ -51,7 +55,7 @@ export default function BioInterests({ variant = "current", embedded = false }: 
             : undefined
         }
       >
-        {item.label}
+        {label}
       </Link>
     );
   });
@@ -66,7 +70,7 @@ export default function BioInterests({ variant = "current", embedded = false }: 
             : undefined
         }
       >
-        {interests.heading}
+        {t.interests.heading}
       </span>
       {pills}
     </div>

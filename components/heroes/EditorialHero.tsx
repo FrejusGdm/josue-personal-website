@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { hero, heroEditorialIntro } from "@/content/home";
 import BioInterests from "@/components/sections/BioInterests";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export default function EditorialHero() {
+  const { t } = useLanguage();
   return (
     <section className="relative w-full min-h-[90vh] flex items-center bg-white text-[#1a1612] px-6 md:px-12">
       <div className="max-w-[680px] mx-auto w-full py-24 md:py-32">
@@ -15,7 +16,7 @@ export default function EditorialHero() {
           className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-8"
           style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
-          {hero.dateline}
+          {t.hero.dateline}
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
@@ -24,7 +25,7 @@ export default function EditorialHero() {
           className="text-6xl md:text-8xl leading-[0.95] tracking-tight mb-12"
           style={{ fontFamily: "var(--font-instrument-serif), Georgia, serif" }}
         >
-          {hero.name}.
+          {t.hero.name}.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -33,7 +34,7 @@ export default function EditorialHero() {
           className="text-lg md:text-xl leading-[1.65] text-[#1a1612]/85"
           style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
         >
-          {hero.tagline} {heroEditorialIntro}
+          {t.hero.tagline} {t.hero.intro}
         </motion.p>
         <BioInterests variant="editorial" embedded />
         <motion.div
@@ -43,10 +44,10 @@ export default function EditorialHero() {
           className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-3"
         >
           <span
-            className="text-sm text-[#1a1612]/40 italic"
+            className="text-sm text-[#1a1612]/40"
             style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
           >
-            Find me on
+            {t.common.findMeOn}
           </span>
           {[
             {
@@ -92,10 +93,10 @@ export default function EditorialHero() {
         </motion.div>
 
         <div
-          className="mt-8 text-[#1a1612]/40 text-sm italic"
+          className="mt-8 text-[#1a1612]/40 text-sm"
           style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
         >
-          ↓ read on
+          {t.common.readOn}
         </div>
       </div>
     </section>

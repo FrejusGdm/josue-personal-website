@@ -3,15 +3,12 @@
 import dynamic from "next/dynamic";
 import ProjectsCurrent from "@/components/projects/ProjectsCurrent";
 import { useMode } from "./useMode";
+import { EditorialLoader } from "./EditorialLoader";
 
 const ProjectsEditorial = dynamic(
   () => import("@/components/projects/ProjectsEditorial"),
-  { ssr: false, loading: () => <Placeholder /> }
+  { ssr: false, loading: () => <EditorialLoader /> }
 );
-
-function Placeholder() {
-  return <div className="min-h-screen flex items-center justify-center text-neutral-400 text-sm">Loading…</div>;
-}
 
 export function ProjectsModeSwitcher() {
   const { mode } = useMode();

@@ -24,7 +24,7 @@ export const bio = {
     },
     {
       label: "Now",
-      text: "I built Echo, a speech-focused language learning app where you get an AI tutor to help you practice the language through voice. I've built a bunch of other projects during my time at Dartmouth. Currently, I'm interested in AI safety, voice AI, and edge AI for education — same kind of thing as Echo, using technology to actually help people. I want to make AI understand the languages of the rest of the world—languages that my parents and millions of others across Asia and Africa speak. But I'm also deeply interested in running AI models on the edge (devices like the Raspberry Pi) and mobile (like the iPhone).",
+      text: "I built Orphi, a speech-focused language learning app where you get an AI tutor to help you practice the language through voice. I've built a bunch of other projects during my time at Dartmouth. Currently, I'm interested in AI safety, voice AI, and edge AI for education — same kind of thing as Orphi, using technology to actually help people. I want to make AI understand the languages of the rest of the world—languages that my parents and millions of others across Asia and Africa speak. But I'm also deeply interested in running AI models on the edge (devices like the Raspberry Pi) and mobile (like the iPhone).",
     },
   ],
   nowEdgeClosing:

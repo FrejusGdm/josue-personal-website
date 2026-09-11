@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { Menu, X, Check } from "lucide-react";
+import LanguageSwitcher from "@/components/language/LanguageSwitcher";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 const EMAIL = "josue@useecho.ai";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -30,10 +33,10 @@ export default function Navbar() {
   }, [scrollY]);
 
   const navLinks = [
-    { name: "Research", href: "/research" },
-    { name: "Projects", href: "/projects" },
-    { name: "Writing", href: "/writing" },
-    { name: "Gallery", href: "/gallery" },
+    { name: t.nav.research, href: "/research" },
+    { name: t.nav.projects, href: "/projects" },
+    { name: t.nav.writing, href: "/writing" },
+    { name: t.nav.gallery, href: "/gallery" },
   ];
 
   const RESUME_HREF = "/resume/Josue-Godeme-Resume-Engineering.pdf";
@@ -78,8 +81,9 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-sans text-neutral-700 hover:text-neutral-900 transition-colors rounded-lg hover:bg-neutral-100"
             >
-              CV
+              {t.nav.cv}
             </a>
+            <LanguageSwitcher variant="default" />
 
             {/* CTA Button */}
             <button
@@ -89,10 +93,10 @@ export default function Navbar() {
               {copied ? (
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="w-3.5 h-3.5" />
-                  Copied!
+                  {t.nav.copied}
                 </span>
               ) : (
-                "Get in Touch"
+                t.nav.getInTouch
               )}
             </button>
           </div>
@@ -140,8 +144,11 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(false)}
             className="block px-4 py-3 text-base font-sans text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg transition-colors"
           >
-            CV
+            {t.nav.cv}
           </a>
+          <div className="px-4 py-2">
+            <LanguageSwitcher variant="default" />
+          </div>
           <button
             onClick={() => {
               handleCopyEmail();
@@ -152,10 +159,10 @@ export default function Navbar() {
             {copied ? (
               <span className="inline-flex items-center justify-center gap-1.5">
                 <Check className="w-4 h-4" />
-                Copied!
+                {t.nav.copied}
               </span>
             ) : (
-              "Get in Touch"
+              t.nav.getInTouch
             )}
           </button>
         </div>
@@ -170,7 +177,7 @@ export default function Navbar() {
             className="fixed top-20 left-1/2 -translate-x-1/2 bg-neutral-900 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 z-50 pointer-events-none"
           >
             <Check className="w-4 h-4 text-green-400" />
-            Email copied to clipboard
+            {t.nav.emailCopied}
           </motion.div>
         )}
       </AnimatePresence>

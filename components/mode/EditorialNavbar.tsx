@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { Menu, X, Check } from "lucide-react";
+import LanguageSwitcher from "@/components/language/LanguageSwitcher";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 const EMAIL = "josue@useecho.ai";
 
@@ -12,6 +14,7 @@ const BODY_STYLE = { fontFamily: "var(--font-source-serif), Georgia, serif" };
 const META_STYLE = { fontFamily: "var(--font-inter), sans-serif" };
 
 export default function EditorialNavbar() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -34,10 +37,10 @@ export default function EditorialNavbar() {
   }, [scrollY]);
 
   const navLinks = [
-    { name: "Research", href: "/research" },
-    { name: "Projects", href: "/projects" },
-    { name: "Writing", href: "/writing" },
-    { name: "Gallery", href: "/gallery" },
+    { name: t.nav.research, href: "/research" },
+    { name: t.nav.projects, href: "/projects" },
+    { name: t.nav.writing, href: "/writing" },
+    { name: t.nav.gallery, href: "/gallery" },
   ];
 
   const RESUME_HREF = "/resume/Josue-Godeme-Resume-Engineering.pdf";
@@ -79,11 +82,12 @@ export default function EditorialNavbar() {
               href={RESUME_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-2 text-sm italic text-[#1a1612]/70 hover:text-[#5a3a1a] transition-colors"
+              className="px-3 py-2 text-sm text-[#1a1612]/70 hover:text-[#5a3a1a] transition-colors"
               style={BODY_STYLE}
             >
               CV
             </a>
+            <LanguageSwitcher variant="editorial" />
 
             <button
               onClick={handleCopyEmail}
@@ -93,10 +97,10 @@ export default function EditorialNavbar() {
               {copied ? (
                 <span className="inline-flex items-center justify-center gap-1.5">
                   <Check className="w-3.5 h-3.5" />
-                  Copied
+                  {t.nav.copied}
                 </span>
               ) : (
-                "Get in Touch"
+                t.nav.getInTouch
               )}
             </button>
           </div>
@@ -137,11 +141,14 @@ export default function EditorialNavbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-3 text-base italic text-[#1a1612]/80 hover:text-[#5a3a1a]"
+            className="block px-3 py-3 text-base text-[#1a1612]/80 hover:text-[#5a3a1a]"
             style={BODY_STYLE}
           >
             CV
           </a>
+          <div className="px-3 py-2">
+            <LanguageSwitcher variant="editorial" />
+          </div>
           <button
             onClick={() => {
               handleCopyEmail();
@@ -153,10 +160,10 @@ export default function EditorialNavbar() {
             {copied ? (
               <span className="inline-flex items-center justify-center gap-1.5">
                 <Check className="w-4 h-4" />
-                Copied
+                {t.nav.copied}
               </span>
             ) : (
-              "Get in Touch"
+              t.nav.getInTouch
             )}
           </button>
         </div>
@@ -172,7 +179,7 @@ export default function EditorialNavbar() {
             style={META_STYLE}
           >
             <Check className="w-4 h-4 text-[#d4c296]" />
-            Email copied
+            {t.nav.emailCopied}
           </motion.div>
         )}
       </AnimatePresence>

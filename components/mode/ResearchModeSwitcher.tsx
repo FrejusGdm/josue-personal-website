@@ -3,16 +3,13 @@
 import dynamic from "next/dynamic";
 import CurrentResearch from "@/components/sections/CurrentResearch";
 import { useMode } from "./useMode";
+import { EditorialLoader } from "./EditorialLoader";
 
 const EditorialResearch = dynamic(
   () => import("@/components/sections/editorial/EditorialResearch"),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-[90vh] flex items-center justify-center">
-        <p className="text-neutral-400 text-sm">Loading Editorial…</p>
-      </div>
-    ),
+    loading: () => <EditorialLoader />,
   }
 );
 

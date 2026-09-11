@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SmartLink from "@/components/ui/SmartLink";
+import { useLanguage } from "@/components/language/LanguageProvider";
 import type { HonorItem, InvolvementItem } from "@/content/honors";
 
 const META_STYLE = { fontFamily: "var(--font-inter), sans-serif" };
@@ -16,6 +17,7 @@ interface HonorsListProps {
 }
 
 function ViewAllLink({ variant }: { variant: "current" | "editorial" }) {
+  const { t } = useLanguage();
   if (variant === "editorial") {
     return (
       <Link
@@ -23,7 +25,7 @@ function ViewAllLink({ variant }: { variant: "current" | "editorial" }) {
         className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a] hover:text-[#1a1612] transition-colors"
         style={META_STYLE}
       >
-        View all →
+        {t.common.viewAll} →
       </Link>
     );
   }
@@ -32,7 +34,7 @@ function ViewAllLink({ variant }: { variant: "current" | "editorial" }) {
       href="/honors"
       className="text-sm font-sans text-neutral-400 hover:text-neutral-900 transition-colors"
     >
-      View all →
+      {t.common.viewAll} →
     </Link>
   );
 }
@@ -43,12 +45,14 @@ export function HonorsList({
   variant = "current",
   showViewAll = false,
 }: HonorsListProps) {
+  const { lang, t } = useLanguage();
+
   if (variant === "editorial") {
     return (
       <>
         <div className="flex items-baseline justify-between gap-4 mb-8">
           <p className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a]" style={META_STYLE}>
-            Honors &amp; Awards
+            {t.honorsUi.honorsTitle}
           </p>
           {showViewAll && <ViewAllLink variant="editorial" />}
         </div>
@@ -80,13 +84,13 @@ export function HonorsList({
                   />
                   <span>{h.organization}</span>
                 </div>
-                <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2">{h.description}</p>
+                <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2">{h.description[lang]}</p>
               </div>
               <span
                 className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a] whitespace-nowrap"
                 style={META_STYLE}
               >
-                {h.date}
+                {h.date[lang]}
               </span>
             </li>
           ))}
@@ -94,18 +98,18 @@ export function HonorsList({
 
         <div className="flex items-baseline justify-between gap-4 mt-20 mb-8">
           <p className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a]" style={META_STYLE}>
-            Leadership &amp; Involvement
+            {t.honorsUi.involvementTitle}
           </p>
           {showViewAll && <ViewAllLink variant="editorial" />}
         </div>
         <ul className="divide-y divide-[#1a1612]/10" style={BODY_STYLE}>
           {involvement.map((i) => (
             <li
-              key={i.role + i.organization}
+              key={i.role.en + i.organization}
               className="grid grid-cols-[1fr_auto] gap-6 py-5 items-baseline"
             >
               <div>
-                <div className="text-lg">{i.role}</div>
+                <div className="text-lg">{i.role[lang]}</div>
                 <div className="inline-flex items-center gap-1.5 text-sm text-[#1a1612]/60 mt-1">
                   <Image
                     src={`/logos/${i.logo}`}
@@ -116,7 +120,7 @@ export function HonorsList({
                   />
                   <span>{i.organization}</span>
                 </div>
-                <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2">{i.description}</p>
+                <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2">{i.description[lang]}</p>
                 {i.badges && (
                   <div className="flex flex-wrap gap-2 mt-3">
                     {i.badges.map((badge) => (
@@ -141,7 +145,7 @@ export function HonorsList({
                 className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a] whitespace-nowrap"
                 style={META_STYLE}
               >
-                {i.date}
+                {i.date[lang]}
               </span>
             </li>
           ))}
@@ -154,7 +158,7 @@ export function HonorsList({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
       <div>
         <div className="flex items-end justify-between gap-4 mb-10">
-          <h2 className="font-display text-3xl md:text-4xl text-foreground">Honors & Awards</h2>
+          <h2 className="font-display text-3xl md:text-4xl text-foreground">{t.honorsUi.honorsTitle}</h2>
           {showViewAll && <ViewAllLink variant="current" />}
         </div>
         <div className="space-y-12">
@@ -163,7 +167,7 @@ export function HonorsList({
               <div className="flex justify-between items-baseline mb-2">
                 <h3 className="font-sans font-medium text-lg text-neutral-900 group-hover:text-neutral-700 transition-colors">
                   {item.link ? (
-                    <SmartLink href={item.link} external previewText={item.previewText}>
+                    <SmartLink href={item.link} external previewText={item.previewText?.[lang]}>
                       {item.title}
                     </SmartLink>
                   ) : (
@@ -171,7 +175,7 @@ export function HonorsList({
                   )}
                 </h3>
                 <span className="font-sans text-sm text-neutral-400 flex-shrink-0 ml-4">
-                  {item.date}
+                  {item.date[lang]}
                 </span>
               </div>
               <div className="text-sm text-neutral-500 mb-2 font-medium inline-flex items-center gap-1">
@@ -185,7 +189,7 @@ export function HonorsList({
                 {item.organization}
               </div>
               <p className="font-sans text-neutral-600 leading-relaxed text-sm md:text-base">
-                {item.description}
+                {item.description[lang]}
               </p>
             </div>
           ))}
@@ -195,19 +199,19 @@ export function HonorsList({
       <div>
         <div className="flex items-end justify-between gap-4 mb-10">
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
-            Leadership & Involvement
+            {t.honorsUi.involvementTitle}
           </h2>
           {showViewAll && <ViewAllLink variant="current" />}
         </div>
         <div className="space-y-12">
           {involvement.map((item) => (
-            <div key={item.role + item.organization} className="group">
+            <div key={item.role.en + item.organization} className="group">
               <div className="flex justify-between items-baseline mb-2">
                 <h3 className="font-sans font-medium text-lg text-neutral-900 group-hover:text-neutral-700 transition-colors">
-                  {item.role}
+                  {item.role[lang]}
                 </h3>
                 <span className="font-sans text-sm text-neutral-400 flex-shrink-0 ml-4">
-                  {item.date}
+                  {item.date[lang]}
                 </span>
               </div>
               <div className="text-sm text-neutral-500 mb-2 font-medium inline-flex items-center gap-1">
@@ -221,7 +225,7 @@ export function HonorsList({
                 {item.organization}
               </div>
               <p className="font-sans text-neutral-600 leading-relaxed text-sm md:text-base">
-                {item.description}
+                {item.description[lang]}
               </p>
               {item.badges && (
                 <div className="flex flex-wrap gap-2 mt-3">

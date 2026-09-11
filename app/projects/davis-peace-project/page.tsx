@@ -177,7 +177,7 @@ export default function DavisPeaceProjectPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-sm text-neutral-500 italic">
+            <p className="mt-8 text-sm text-neutral-500">
               Note: We started with 1,500 sentences that summer. Since then,
               we&apos;ve found our rhythm and scaled to over 15,000: the process
               that once took weeks now takes days.

@@ -4,8 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import { projects } from "@/app/projects/data";
 import { ProjectLink } from "@/components/projects/ProjectLink";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export default function EditorialWork() {
+  const { lang, t } = useLanguage();
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const preview = hoverIdx !== null ? projects[hoverIdx] : null;
 
@@ -19,7 +21,7 @@ export default function EditorialWork() {
           className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-8"
           style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
-          Selected Work
+          {t.sections.selectedWork}
         </p>
         <ul
           className="divide-y divide-[#1a1612]/10 relative"
@@ -41,7 +43,7 @@ export default function EditorialWork() {
                 </span>
                 <span className="text-lg">
                   <span className="italic">{p.title}</span>
-                  <span className="text-[#1a1612]/55"> — {p.tagline}</span>
+                  <span className="text-[#1a1612]/55"> — {p.tagline[lang]}</span>
                 </span>
                 <span className="text-[#5a3a1a] text-lg group-hover:translate-x-1 transition-transform">→</span>
               </ProjectLink>

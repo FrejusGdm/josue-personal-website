@@ -5,9 +5,16 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ModeProvider } from "@/components/mode/ModeProvider";
-import { ModeToggle } from "@/components/mode/ModeToggle";
 import { ChromeVisibility, EditorialOnly } from "@/components/mode/ChromeVisibility";
 import EditorialNavbar from "@/components/mode/EditorialNavbar";
+import { LanguageProvider } from "@/components/language/LanguageProvider";
+import {
+  personJsonLd,
+  siteDescription,
+  siteName,
+  siteUrl,
+  websiteJsonLd,
+} from "@/lib/site";
 
 // Inter Font (Body Text)
 const inter = Inter({
@@ -63,19 +70,47 @@ const editorialUltrabold = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Josue Godeme - Researcher, Builder, Designer",
-  description: "Personal website of Josue Godeme - exploring AI, HCI, and creative expression through research and building.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Josué Godeme — Researcher and Builder",
+    template: "%s",
+  },
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Josue Godeme - Researcher, Builder, Designer",
-    description: "Personal website of Josue Godeme - exploring AI, HCI, and creative expression through research and building.",
-    images: [], // Explicitly empty to prevent scraping random project images
+    title: "Josué Godeme — Researcher and Builder",
+    description: siteDescription,
+    url: "/",
+    siteName,
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Josué Godeme — Researcher and Builder",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Josue Godeme",
-    description: "Researcher, Builder, Designer",
-    images: [], // Explicitly empty
+    card: "summary_large_image",
+    title: "Josué Godeme — Researcher and Builder",
+    description: siteDescription,
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -89,19 +124,30 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${editorialUltralight.variable} ${editorialRegular.variable} ${editorialUltrabold.variable} ${instrumentSerif.variable} ${sourceSerif.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ModeProvider>
-          <ChromeVisibility>
-            <Navbar />
-          </ChromeVisibility>
-          <EditorialOnly>
-            <EditorialNavbar />
-          </EditorialOnly>
-          <main className="min-h-screen pt-16">{children}</main>
-          <ChromeVisibility>
-            <Footer />
-          </ChromeVisibility>
-          {/* <ModeToggle /> */}
-        </ModeProvider>
+        {/* Agent discovery: points AI agents at the markdown index. */}
+        <link rel="describedby" href={`${siteUrl}/llms.txt`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+        />
+        <LanguageProvider>
+          <ModeProvider>
+            <ChromeVisibility>
+              <Navbar />
+            </ChromeVisibility>
+            <EditorialOnly>
+              <EditorialNavbar />
+            </EditorialOnly>
+            <main className="min-h-screen pt-16">{children}</main>
+            <ChromeVisibility>
+              <Footer />
+            </ChromeVisibility>
+          </ModeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

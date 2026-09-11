@@ -7,8 +7,10 @@ import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/app/projects/data";
 import { ProjectLink } from "@/components/projects/ProjectLink";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export default function ProjectsCurrent() {
+  const { lang, t } = useLanguage();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [visibleIndex, setVisibleIndex] = useState(0);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -55,14 +57,14 @@ export default function ProjectsCurrent() {
               className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Home
+              {t.common.backToHome}
             </Link>
           </div>
 
           <header className="mb-16 md:mb-24 text-center md:text-left">
-            <h1 className="font-display text-5xl md:text-7xl mb-6 tracking-tight">Projects</h1>
+            <h1 className="font-display text-5xl md:text-7xl mb-6 tracking-tight">{t.projectsUi.title}</h1>
             <p className="font-sans text-xl text-neutral-500 max-w-2xl">
-              A collection of products, experiments, and research exploring the intersection of AI and human experience.
+              {t.projectsUi.subtitle}
             </p>
           </header>
 
@@ -88,10 +90,10 @@ export default function ProjectsCurrent() {
                     </span>
                   </div>
                   <p className="font-sans text-sm font-medium text-neutral-500 mb-2 uppercase tracking-wider">
-                    {project.tagline}
+                    {project.tagline[lang]}
                   </p>
                   <p className="font-sans text-lg text-neutral-600 leading-relaxed mb-4 max-w-xl">
-                    {project.description}
+                    {project.description[lang]}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.slice(0, 3).map((tag) => (
@@ -144,7 +146,7 @@ export default function ProjectsCurrent() {
           </div>
 
           <div className="mt-32 pt-12 border-t border-neutral-100 text-center text-neutral-400 text-sm font-mono">
-              End of Projects
+              {t.projectsUi.end}
           </div>
         </motion.div>
       </div>

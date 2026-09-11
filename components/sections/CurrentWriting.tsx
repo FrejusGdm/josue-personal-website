@@ -4,20 +4,26 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { EssayMeta } from "@/lib/mdx";
 import { essayHref } from "@/lib/essay-link";
+import { useLanguage } from "@/components/language/LanguageProvider";
+import type { Lang } from "@/lib/i18n/translations";
 
 interface Props {
   essays: EssayMeta[];
 }
 
+const dateLocales: Record<Lang, string> = { en: "en-US", fr: "fr-FR", zh: "zh-CN" };
+
 export default function CurrentWriting({ essays }: Props) {
+  const { lang, t } = useLanguage();
   return (
     <main className="w-full min-h-screen bg-white pt-32 pb-20">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
         <div className="mb-16 space-y-4">
-          <h1 className="font-display text-5xl md:text-6xl text-foreground">Writing</h1>
+          <h1 className="font-display text-5xl md:text-6xl text-foreground">{t.writingUi.pageTitle}</h1>
           <p className="font-sans text-lg text-neutral-600 max-w-xl">
-            Thoughts on building technology for the next billion users, preserving culture, and the future of education.
+            {t.writingUi.pageSubtitle}
           </p>
+          <p className="font-sans text-sm text-neutral-400">{t.common.writtenInEnglish}</p>
         </div>
 
         <div className="space-y-4">
@@ -38,7 +44,7 @@ export default function CurrentWriting({ essays }: Props) {
 
                 <div className="flex items-center gap-4 text-sm font-sans text-neutral-400 pt-1">
                   <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("en-US", {
+                    {new Date(post.date).toLocaleDateString(dateLocales[lang], {
                       year: "numeric",
                       month: "long",
                       day: "numeric",

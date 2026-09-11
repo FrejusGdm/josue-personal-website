@@ -41,7 +41,7 @@ export default function ModernHero() {
           className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.1] text-foreground tracking-tight"
         >
           Building with <br className="hidden md:block" />
-          <span className="italic font-light text-neutral-400">Purpose.</span>
+          <span className="font-light text-neutral-400">Purpose.</span>
         </motion.h1>
         </div>
 

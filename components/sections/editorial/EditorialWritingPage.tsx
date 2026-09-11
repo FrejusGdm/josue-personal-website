@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { EssayMeta } from "@/lib/mdx";
 import { essayHref } from "@/lib/essay-link";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 interface Props {
   essays: EssayMeta[];
@@ -28,6 +29,7 @@ function groupByYear(essays: EssayMeta[]): Array<[number, EssayMeta[]]> {
 }
 
 export default function EditorialWritingPage({ essays }: Props) {
+  const { t } = useLanguage();
   const grouped = groupByYear(essays);
 
   return (
@@ -43,19 +45,19 @@ export default function EditorialWritingPage({ essays }: Props) {
             className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-8"
             style={META_STYLE}
           >
-            Writing — Vol. I
+            {t.writingUi.volume}
           </p>
           <h1
-            className="italic text-6xl md:text-8xl leading-[0.95] tracking-tight mb-12"
+            className="text-6xl md:text-8xl leading-[0.95] tracking-tight mb-12"
             style={DISPLAY_STYLE}
           >
-            Essays.
+            {t.writingUi.title}
           </h1>
           <p
             className="text-lg md:text-xl leading-[1.65] text-[#1a1612]/85"
             style={BODY_STYLE}
           >
-            A running record of what I&apos;ve been reading, making, and thinking about.
+            {t.writingUi.subtitle}
           </p>
         </motion.div>
       </section>
@@ -64,10 +66,10 @@ export default function EditorialWritingPage({ essays }: Props) {
         <div className="max-w-[680px] mx-auto border-t border-[#1a1612]/15 pt-12">
           {grouped.length === 0 ? (
             <p
-              className="italic text-lg text-[#1a1612]/60"
+              className="text-lg text-[#1a1612]/60"
               style={BODY_STYLE}
             >
-              Coming soon.
+              {t.writingUi.empty}
             </p>
           ) : (
             <div className="space-y-12">
@@ -126,10 +128,10 @@ export default function EditorialWritingPage({ essays }: Props) {
       </section>
 
       <footer
-        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center italic"
+        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center"
         style={BODY_STYLE}
       >
-        Built with love by Josué.
+        {t.common.builtWithLove}
       </footer>
     </div>
   );

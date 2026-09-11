@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import {
   researchHeader,
@@ -10,13 +11,17 @@ import {
   publications,
   worksInProgress,
   talks,
+  training,
 } from "@/content/research";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 const DISPLAY_STYLE = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 const BODY_STYLE = { fontFamily: "var(--font-source-serif), Georgia, serif" };
 const META_STYLE = { fontFamily: "var(--font-inter), sans-serif" };
 
 export default function EditorialResearch() {
+  const { lang, t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white text-[#1a1612]">
       <div className="max-w-[680px] mx-auto px-6 md:px-12 pt-32 md:pt-40 pb-20">
@@ -27,11 +32,11 @@ export default function EditorialResearch() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 italic text-sm text-[#1a1612]/60 hover:text-[#5a3a1a] mb-12 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#1a1612]/60 hover:text-[#5a3a1a] mb-12 transition-colors"
             style={BODY_STYLE}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {t.common.backToHome}
           </Link>
 
           <div className="mb-16">
@@ -39,10 +44,10 @@ export default function EditorialResearch() {
               className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-6"
               style={META_STYLE}
             >
-              Research — Vol. I
+              {t.researchUi.volume}
             </p>
             <h1
-              className="italic text-5xl md:text-7xl leading-[0.95] tracking-tight mb-8"
+              className="text-5xl md:text-7xl leading-[0.95] tracking-tight mb-8"
               style={DISPLAY_STYLE}
             >
               {researchHeader.name}.
@@ -51,17 +56,27 @@ export default function EditorialResearch() {
               className="text-lg leading-[1.65] text-[#1a1612]/85 mb-8"
               style={BODY_STYLE}
             >
-              <span className="italic">Computer Science.</span> Dartmouth College
-              <br />
-              King Scholar &amp; Stamps Scholar
-              <br />
-              Incoming Schwarzman Scholar, Tsinghua University (2027)
+              {researchHeader.affiliations.map((affiliation, i) => (
+                <span key={affiliation.label.en}>
+                  {affiliation.detail[lang] ? (
+                    <>
+                      <span className="italic">
+                        {affiliation.label[lang]}.
+                      </span>{" "}
+                      {affiliation.detail[lang]}
+                    </>
+                  ) : (
+                    affiliation.label[lang]
+                  )}
+                  {i < researchHeader.affiliations.length - 1 && <br />}
+                </span>
+              ))}
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
               {researchHeader.links.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   {...(link.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -69,7 +84,7 @@ export default function EditorialResearch() {
                   className="px-5 py-2 rounded-full text-xs uppercase tracking-[0.15em] border border-[#1a1612]/30 text-[#1a1612] hover:bg-[#1a1612] hover:text-white transition-colors"
                   style={META_STYLE}
                 >
-                  {link.label}
+                  {link.label[lang]}
                 </a>
               ))}
             </div>
@@ -82,32 +97,32 @@ export default function EditorialResearch() {
               style={BODY_STYLE}
             >
               <p>
-                {researchBio.firstParagraph.before}
+                {researchBio.firstParagraph.before[lang]}
                 <Link
                   href={researchBio.firstParagraph.link.href}
-                  className="italic underline decoration-[#5a3a1a]/60 underline-offset-4 hover:decoration-[#5a3a1a]"
+                  className="underline decoration-[#5a3a1a]/60 underline-offset-4 hover:decoration-[#5a3a1a]"
                 >
                   {researchBio.firstParagraph.link.label}
                 </Link>
-                {researchBio.firstParagraph.after}
+                {researchBio.firstParagraph.after[lang]}
               </p>
-              <p>{researchBio.secondParagraph}</p>
+              <p>{researchBio.secondParagraph[lang]}</p>
             </section>
 
             {/* Current Research Areas */}
             <section>
               <h2
-                className="italic text-2xl md:text-3xl mb-6"
+                className="text-2xl md:text-3xl mb-6"
                 style={DISPLAY_STYLE}
               >
-                Current Research Areas
+                {t.researchUi.areasTitle}
               </h2>
               <ul
                 className="space-y-3 text-lg leading-[1.7] text-[#1a1612]/90 list-disc list-outside ml-5"
                 style={BODY_STYLE}
               >
                 {researchAreas.map((area) => (
-                  <li key={area}>{area}</li>
+                  <li key={area.en}>{area[lang]}</li>
                 ))}
               </ul>
             </section>
@@ -115,10 +130,10 @@ export default function EditorialResearch() {
             {/* Publications */}
             <section>
               <h2
-                className="italic text-2xl md:text-3xl mb-6"
+                className="text-2xl md:text-3xl mb-6"
                 style={DISPLAY_STYLE}
               >
-                Publications
+                {t.researchUi.pubsTitle}
               </h2>
               <div className="space-y-8">
                 {publications.map((pub) => (
@@ -132,7 +147,7 @@ export default function EditorialResearch() {
                         href={pub.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="italic underline decoration-[#5a3a1a]/60 underline-offset-4 hover:decoration-[#5a3a1a]"
+                        className="underline decoration-[#5a3a1a]/60 underline-offset-4 hover:decoration-[#5a3a1a]"
                       >
                         {pub.title}
                       </a>
@@ -157,18 +172,18 @@ export default function EditorialResearch() {
             {/* Works in Progress */}
             <section>
               <h2
-                className="italic text-2xl md:text-3xl mb-6"
+                className="text-2xl md:text-3xl mb-6"
                 style={DISPLAY_STYLE}
               >
-                Works in Progress
+                {t.researchUi.wipTitle}
               </h2>
               <div className="space-y-8">
                 {worksInProgress.length === 0 ? (
                   <p
-                    className="italic text-lg text-[#1a1612]/55"
+                    className="text-lg text-[#1a1612]/55"
                     style={BODY_STYLE}
                   >
-                    To be added.
+                    {t.researchUi.wipEmpty}
                   </p>
                 ) : (
                   worksInProgress.map((pub) => (
@@ -193,13 +208,44 @@ export default function EditorialResearch() {
               </div>
             </section>
 
+            {/* Programs */}
+            <section>
+              <h2
+                className="text-2xl md:text-3xl mb-6"
+                style={DISPLAY_STYLE}
+              >
+                {t.researchUi.programsTitle}
+              </h2>
+              <ul className="space-y-4" style={BODY_STYLE}>
+                {training.map((item) => (
+                  <li key={item.name} className="flex items-start gap-3 text-lg leading-[1.7] text-[#1a1612]/90">
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border-b border-[#1a1612]/15 hover:border-[#5a3a1a] hover:text-[#5a3a1a] transition-colors shrink-0 mt-1"
+                    >
+                      <span className="w-6 h-6 rounded-full bg-white border border-[#1a1612]/15 flex items-center justify-center overflow-hidden shrink-0">
+                        <Image src={`/logos/${item.logo}`} alt={`${item.name} logo`} width={20} height={20} className="object-contain p-0.5" />
+                      </span>
+                      <span className="font-medium">{item.name}</span>
+                    </a>
+                    <span className="text-[#1a1612]/70">— {item.program[lang]}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-[#1a1612]/60 mt-3" style={BODY_STYLE}>
+                {training[0].detail[lang]}
+              </p>
+            </section>
+
             {/* Talks */}
             <section>
               <h2
-                className="italic text-2xl md:text-3xl mb-6"
+                className="text-2xl md:text-3xl mb-6"
                 style={DISPLAY_STYLE}
               >
-                Talks &amp; Presentations
+                {t.researchUi.talksTitle}
               </h2>
               <ul
                 className="space-y-3 text-lg leading-[1.7] text-[#1a1612]/90"
@@ -208,13 +254,13 @@ export default function EditorialResearch() {
                 {talks.map((talk) => (
                   <li key={talk.venue} className="grid grid-cols-[1fr_auto] gap-6 items-baseline">
                     <span>
-                      <span className="italic">{talk.venue}</span> — {talk.location}
+                      <span className="italic">{talk.venue}</span> — {talk.location[lang]}
                     </span>
                     <span
                       className="text-xs uppercase tracking-[0.15em] text-[#5a3a1a]"
                       style={META_STYLE}
                     >
-                      {talk.date}
+                      {talk.date[lang]}
                     </span>
                   </li>
                 ))}
@@ -225,10 +271,10 @@ export default function EditorialResearch() {
       </div>
 
       <footer
-        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center italic"
+        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center"
         style={BODY_STYLE}
       >
-        Built with love by Josué.
+        {t.common.builtWithLove}
       </footer>
     </div>
   );

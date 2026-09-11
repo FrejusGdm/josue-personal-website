@@ -3,10 +3,12 @@
 import type { EssayMeta } from "@/lib/mdx";
 import Link from "next/link";
 import { essayHref } from "@/lib/essay-link";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 interface Props { essays: EssayMeta[]; }
 
 export default function EditorialWriting({ essays }: Props) {
+  const { t } = useLanguage();
   if (essays.length === 0) return null;
   return (
     <section className="w-full bg-white text-[#1a1612] px-6 md:px-12 py-24 md:py-32 border-t border-[#1a1612]/15">
@@ -15,7 +17,7 @@ export default function EditorialWriting({ essays }: Props) {
           className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a] mb-8"
           style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
-          Recent Writing
+          {t.sections.recentWriting}
         </p>
         <ul
           className="divide-y divide-[#1a1612]/10"
@@ -31,7 +33,7 @@ export default function EditorialWriting({ essays }: Props) {
                 >
                   {new Date(e.date).getFullYear()}
                 </span>
-                <span className="italic text-lg group-hover:underline decoration-[#5a3a1a]/60 underline-offset-4">
+                <span className="text-lg group-hover:underline decoration-[#5a3a1a]/60 underline-offset-4">
                   {e.title}
                 </span>
                 <span
@@ -64,9 +66,9 @@ export default function EditorialWriting({ essays }: Props) {
         </ul>
         <Link
           href="/writing"
-          className="inline-block mt-10 italic text-[#5a3a1a] underline underline-offset-4"
+          className="inline-block mt-10 text-[#5a3a1a] underline underline-offset-4"
         >
-          → all essays
+          {t.common.allEssays}
         </Link>
       </div>
     </section>

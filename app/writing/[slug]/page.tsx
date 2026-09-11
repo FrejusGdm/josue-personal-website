@@ -1,4 +1,5 @@
 import { getEssayBySlug, getAllEssays } from "@/lib/essays";
+import { articleJsonLd } from "@/lib/site";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -12,9 +13,35 @@ export async function generateMetadata({ params }: Props) {
   const essay = await getEssayBySlug(slug);
   if (!essay) return {};
 
+  const path = `/writing/${slug}`;
   return {
-    title: `${essay.title} - Josué Godeme`,
+    title: `${essay.title} — Josué Godeme`,
     description: essay.description,
+    alternates: {
+      canonical: path,
+      types: { "text/markdown": `/writing/${slug}.md` },
+    },
+    openGraph: {
+      title: essay.title,
+      description: essay.description,
+      url: path,
+      type: "article",
+      publishedTime: essay.date,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: essay.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: essay.title,
+      description: essay.description,
+      images: ["/opengraph-image"],
+    },
   };
 }
 
@@ -42,6 +69,20 @@ export default async function EssayPage({ params }: Props) {
   }
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleJsonLd({
+              path: `/writing/${slug}`,
+              title: essay.title,
+              description: essay.description,
+              datePublished: essay.date,
+            })
+          ),
+        }}
+      />
     <article className="w-full min-h-screen bg-white pt-32 pb-20">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
         
@@ -80,13 +121,14 @@ export default async function EssayPage({ params }: Props) {
           prose-headings:font-display prose-headings:font-normal prose-headings:tracking-tight
           prose-p:text-neutral-600 prose-p:leading-relaxed
           prose-a:text-foreground prose-a:no-underline prose-a:border-b prose-a:border-neutral-300 hover:prose-a:border-foreground hover:prose-a:transition-colors
-          prose-blockquote:border-l-2 prose-blockquote:border-neutral-200 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:font-light prose-blockquote:text-neutral-500
+          prose-blockquote:border-l-2 prose-blockquote:border-neutral-200 prose-blockquote:pl-6 prose-blockquote:font-light prose-blockquote:text-neutral-500
           prose-strong:font-medium prose-strong:text-foreground
         ">
           {essay.content}
         </div>
       </div>
     </article>
+    </>
   );
 }
 

@@ -193,7 +193,7 @@
   }
   .editorial-project-page .font-display {
     font-family: var(--font-instrument-serif), Georgia, serif;
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     letter-spacing: -0.01em;
   }

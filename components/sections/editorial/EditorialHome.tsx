@@ -6,10 +6,12 @@ import EditorialBio from "./EditorialBio";
 import EditorialWork from "./EditorialWork";
 import EditorialHonors from "./EditorialHonors";
 import EditorialWriting from "./EditorialWriting";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 interface Props { essays: EssayMeta[]; }
 
 export default function EditorialHome({ essays }: Props) {
+  const { t } = useLanguage();
   return (
     <div className="bg-white text-[#1a1612]">
       <EditorialHero />
@@ -18,10 +20,10 @@ export default function EditorialHome({ essays }: Props) {
       <EditorialHonors />
       <EditorialWriting essays={essays} />
       <footer
-        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center italic"
+        className="border-t border-[#1a1612]/15 px-6 md:px-12 py-12 text-sm text-[#1a1612]/55 text-center"
         style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
       >
-        Built with love by Josué.
+        {t.common.builtWithLove}
       </footer>
     </div>
   );

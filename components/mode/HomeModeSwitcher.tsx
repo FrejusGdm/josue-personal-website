@@ -10,19 +10,12 @@ import { useMode } from "./useMode";
 import type { EssayMeta } from "@/lib/mdx";
 import { essayHref } from "@/lib/essay-link";
 import Link from "next/link";
+import { EditorialLoader } from "./EditorialLoader";
 
 const EditorialHome = dynamic(
   () => import("@/components/sections/editorial/EditorialHome"),
-  { ssr: false, loading: () => <ModePlaceholder label="Editorial" /> }
+  { ssr: false, loading: () => <EditorialLoader /> }
 );
-
-function ModePlaceholder({ label }: { label: string }) {
-  return (
-    <div className="min-h-[90vh] flex items-center justify-center">
-      <p className="text-neutral-400 text-sm">Loading {label}…</p>
-    </div>
-  );
-}
 
 interface Props {
   essays: EssayMeta[];

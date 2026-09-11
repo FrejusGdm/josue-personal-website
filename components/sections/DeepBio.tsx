@@ -50,8 +50,8 @@ export default function DeepBio() {
               </p>
               <p>{bio.paragraphs[1].text}</p>
               <p>
-                I built <SmartLink href="/projects/echo" previewText="My speech-first language learning app.">Echo</SmartLink>
-                {nowParagraph.replace(/^I built Echo,/, ",")}{" "}
+                I built <SmartLink href="/projects/orphi" previewText="My speech-first language learning app — Orphi, live on the App Store.">Orphi</SmartLink>
+                {nowParagraph.replace(/^I built Orphi,/, ",")}{" "}
                 {bio.nowEdgeClosing}
               </p>
             </div>

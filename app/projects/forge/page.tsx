@@ -174,7 +174,7 @@ export default function ForgePage() {
                 />
               </div>
             </div>
-            <p className="mt-4 text-sm text-neutral-500 italic">
+            <p className="mt-4 text-sm text-neutral-500">
               Late night hacking sessions getting the pipeline and frontend working.
             </p>
           </section>
@@ -215,7 +215,7 @@ export default function ForgePage() {
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p className="mt-4 text-sm text-neutral-500 italic">
+            <p className="mt-4 text-sm text-neutral-500">
               Full walkthrough of the keycap generation process (sped up 1.5x).
             </p>
           </section>

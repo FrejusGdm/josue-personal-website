@@ -4,8 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail, Check, Copy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   const [copied, setCopied] = useState(false);
   const email = "josue@useecho.ai"; // Assuming this is the email, updated from placeholder
@@ -39,7 +41,7 @@ export default function Footer() {
             className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-neutral-900 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 z-50 pointer-events-none"
           >
             <Check className="w-4 h-4 text-green-400" />
-            Email copied to clipboard
+            {t.nav.emailCopied}
           </motion.div>
         )}
       </AnimatePresence>
@@ -80,7 +82,7 @@ export default function Footer() {
         <div className="space-y-2 text-sm text-neutral-500">
           <p>© {currentYear} Josue Godeme</p>
           <p className="text-xs text-neutral-400">
-            Built with Next.js & Framer Motion
+            {t.footer.builtWith}
           </p>
         </div>
       </div>

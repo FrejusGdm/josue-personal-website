@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { projects } from "@/app/projects/data";
 import { ProjectLink } from "@/components/projects/ProjectLink";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export default function ProjectsEditorial() {
+  const { lang, t } = useLanguage();
   const byYear = new Map<string, typeof projects>();
   for (const p of projects) {
     const existing = byYear.get(p.year) ?? [];
@@ -20,20 +22,20 @@ export default function ProjectsEditorial() {
           className="text-xs uppercase tracking-[0.2em] text-[#5a3a1a]"
           style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
-          ← back
+          {t.projectsUi.back}
         </Link>
 
         <h1
-          className="italic text-6xl md:text-7xl leading-[0.95] mt-8 mb-6"
+          className="text-6xl md:text-7xl leading-[0.95] mt-8 mb-6"
           style={{ fontFamily: "var(--font-instrument-serif), Georgia, serif" }}
         >
-          Projects
+          {t.projectsUi.title}
         </h1>
         <p
           className="text-lg leading-[1.65] text-[#1a1612]/80 mb-16 max-w-[580px]"
           style={{ fontFamily: "var(--font-source-serif), Georgia, serif" }}
         >
-          A catalogue of things I&apos;ve built, researched, and shipped — in reverse chronological order.
+          {t.projectsUi.subtitle}
         </p>
 
         {Array.from(byYear.entries()).map(([year, group]) => (
@@ -53,11 +55,11 @@ export default function ProjectsEditorial() {
                   <ProjectLink href={p.href} external={p.external} className="grid grid-cols-[1fr_auto] gap-6 items-baseline group">
                     <span className="text-lg">
                       <span className="italic">{p.title}</span>
-                      <span className="text-[#1a1612]/55"> — {p.tagline}</span>
+                      <span className="text-[#1a1612]/55"> — {p.tagline[lang]}</span>
                     </span>
                     <span className="text-[#5a3a1a] group-hover:translate-x-1 transition-transform">→</span>
                   </ProjectLink>
-                  <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2 max-w-[580px]">{p.description}</p>
+                  <p className="text-sm text-[#1a1612]/70 leading-relaxed mt-2 max-w-[580px]">{p.description[lang]}</p>
                 </li>
               ))}
             </ul>

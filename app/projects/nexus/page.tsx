@@ -273,7 +273,7 @@ export default function NexusPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-sm text-neutral-500 italic">
+            <p className="mt-8 text-sm text-neutral-500">
               For the Stripe integration, I really recommend checking out Theo&apos;s
               GitHub repo on Stripe implementation. Made the whole process much
               smoother.

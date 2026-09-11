@@ -3,17 +3,14 @@
 import dynamic from "next/dynamic";
 import CurrentWriting from "@/components/sections/CurrentWriting";
 import { useMode } from "./useMode";
+import { EditorialLoader } from "./EditorialLoader";
 import type { EssayMeta } from "@/lib/mdx";
 
 const EditorialWritingPage = dynamic(
   () => import("@/components/sections/editorial/EditorialWritingPage"),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-[90vh] flex items-center justify-center">
-        <p className="text-neutral-400 text-sm">Loading Editorial…</p>
-      </div>
-    ),
+    loading: () => <EditorialLoader />,
   }
 );
 
