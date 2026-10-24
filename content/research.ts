@@ -55,7 +55,7 @@ export const researchHeader: {
     },
     {
       label: { en: "CV", fr: "CV", zh: "简历" },
-      href: "/resume/Josue-Godeme-Resume-Engineering.pdf",
+      href: "/resume/Josue-Godeme-Resume-Engineering-Projects.pdf",
       external: true,
     },
     {

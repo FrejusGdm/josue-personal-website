@@ -39,7 +39,7 @@ export default function Navbar() {
     { name: t.nav.gallery, href: "/gallery" },
   ];
 
-  const RESUME_HREF = "/resume/Josue-Godeme-Resume-Engineering.pdf";
+  const RESUME_HREF = "/resume/Josue-Godeme-Resume-Engineering-Projects.pdf";
 
   return (
     <motion.nav
